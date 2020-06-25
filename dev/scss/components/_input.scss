@@ -1,0 +1,12 @@
+.input {
+  width: 100%;
+  outline: none;
+  padding: 1.4rem 1.2rem;
+  border: 0.1rem solid #ccc;
+  border-radius: 0.4rem;
+  transition-property: background-color;
+  transition-duration: 0.8s;
+  &:focus {
+    background-color: rgb(247, 247, 247);
+  }
+}

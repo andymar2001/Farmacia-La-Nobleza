@@ -1,0 +1,12 @@
+.main-menu {
+  @include reset-list;
+  display: flex;
+  &__item{
+    margin-left: 3rem;
+    font-weight: 700;
+    color: rgb(146, 146, 146);
+    &:first-child{
+      margin-left: 0;
+    }
+  }
+}

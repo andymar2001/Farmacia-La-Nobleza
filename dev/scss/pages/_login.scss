@@ -1,0 +1,10 @@
+.login {
+  &__container {
+    width: 30%;
+  }
+  &__form {
+    margin-top: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
+}

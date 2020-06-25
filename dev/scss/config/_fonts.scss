@@ -1,0 +1,10 @@
+//Fuentes
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+:root{
+  --main-title:'Roboto',sans-serif;
+  --main-font:'Roboto',sans-serif;
+}
+
+$main-title: var(--main-title);
+$main-font: var(--main-font);

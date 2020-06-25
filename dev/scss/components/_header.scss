@@ -1,0 +1,148 @@
+.header {
+  box-shadow: 0px 0px 10px 1px #ccc;
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  &__container {
+  }
+  &__top {
+    padding: 1rem 0;
+    background-color: $primary-color;
+    color: #fff;
+    &__container {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__data {
+      display: flex;
+      align-items: center;
+    }
+    &__user {
+      display: flex;
+      align-items: center;
+      & a {
+        display: flex;
+        align-items: center;
+        margin-left: 2rem;
+        &:first-child {
+          margin-left: 0;
+        }
+        & svg {
+          margin-right: 0.5rem;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  &__delivery {
+    display: flex;
+    align-items: flex-end;
+    & svg {
+      font-size: 3rem;
+      margin-right: 0.5rem;
+    }
+    & p {
+      & span {
+        font-weight: 700;
+      }
+    }
+  }
+  &__redes {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+  }
+  &__icon {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  &__center {
+    background-color: #fff;
+    padding: 1rem 0;
+    &__container {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__logo {
+    width: 8rem;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    &__form {
+      display: flex;
+      margin-left: 3rem;
+      & input {
+        border-right: none;
+        border: 0.1rem solid #ccc;
+        outline: none;
+        padding: 0.8rem 1rem;
+        color: rgb(71, 71, 71);
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+      & button {
+        background-color: $secondary-color;
+        border: none;
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        color: #fff;
+        cursor: pointer;
+        transition-property: background-color;
+        transition-duration: 0.8s;
+        &:hover {
+          background-color: $primary-color;
+        }
+      }
+    }
+  }
+  &__bottom {
+    background-color: #fff;
+    &__container {
+      display: flex;
+      align-items: center;
+    }
+  }
+  &__category {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+    cursor: pointer;
+    position: relative;
+    &::after {
+      content: "";
+      height: 100%;
+      width: 0.1rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgb(204, 204, 204);
+    }
+    &:last-child {
+      border-right: none;
+    }
+    & svg {
+      font-size: 3rem;
+      color: $secondary-color;
+      transition: color 0.8s;
+    }
+    &:hover svg {
+      color: $primary-color;
+    }
+    & p {
+      color: rgb(105, 105, 105);
+      font-weight: 700;
+      margin-left: 1rem;
+      font-size: 1.5rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+  }
+}
