@@ -2,6 +2,7 @@
     <wb-module deploy-name="Farmacia La Nobleza">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/srcc"/>
         <property name="context-root" value="Farmacia_La_Nobleza"/>
         <property name="java-output-path" value="/Farmacia La Nobleza/build/classes"/>
     </wb-module>
