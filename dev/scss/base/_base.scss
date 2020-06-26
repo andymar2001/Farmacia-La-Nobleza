@@ -70,6 +70,9 @@ a {
   max-width: 135rem;
   margin-left: auto;
   margin-right: auto;
+  @include b-1600{
+    max-width: 120rem;
+  }
 }
 .title {
   font-size: 3.6rem;
