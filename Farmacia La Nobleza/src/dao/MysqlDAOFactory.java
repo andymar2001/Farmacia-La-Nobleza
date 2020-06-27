@@ -1,6 +1,7 @@
 package dao;
 
 import interfaces.VentaModelInterface;
+import model.VentaModel;
 
 public class MysqlDAOFactory extends DAOFactory {
 
