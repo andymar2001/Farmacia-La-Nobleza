@@ -429,6 +429,12 @@ a {
   margin-right: auto;
 }
 
+@media screen and (max-width: 1600px) {
+  .container {
+    max-width: 120rem;
+  }
+}
+
 .title {
   font-size: 3.6rem;
   color: var(--primary-color);
