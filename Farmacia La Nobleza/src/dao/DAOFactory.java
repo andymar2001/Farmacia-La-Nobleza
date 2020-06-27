@@ -10,7 +10,7 @@ public abstract class DAOFactory {
 		public static final int ORACLE=3;
 	
 		public abstract VentaModelInterface getVentaModel();
-		public abstract UsuarioModelInterface getLoginModel();
+		public abstract UsuarioModelInterface getUsuarioModel();
 		
 		public static DAOFactory getDaoFactory(int tipo) {
 			switch (tipo) {

@@ -14,7 +14,7 @@ public class MysqlDAOFactory extends DAOFactory {
 	}
 
 	@Override
-	public UsuarioModelInterface getLoginModel() {
+	public UsuarioModelInterface getUsuarioModel() {
 		// TODO Auto-generated method stub
 		return new UsuarioModel();
 	}
