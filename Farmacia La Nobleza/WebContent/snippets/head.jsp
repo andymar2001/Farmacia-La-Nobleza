@@ -29,5 +29,6 @@
 	<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=L_un9zw3o0yF2lmpRRQAqmXjGUkwigIPcf1gi7l4rE2-XmrXROXhgts0ceyTKUitJbyQzieGcbp-SVkkaiBdVd3enQed84aDDcAefOZM32A" charset="UTF-8"></script><script src="assets/fontawesome/js/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/slick/slick.css" />
 	<link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css">
 	<!-- STYLES -->
 	<link rel="stylesheet" href="css/styles.css">

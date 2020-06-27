@@ -10,9 +10,9 @@
     <section class="registro-usuario section">
       <div class="registro-usuario__container container">
         <h2 class="registro-usuario__title title">Registro</h2>
-        <form class="registro-usuario__form" action="" method="POST" id="form-register-user">
-          <div>
-            <input class="input" type="text" name="nombres" id="nombres-user" placeholder="Nombres">
+        <form class="form registro-usuario__form" action="" method="POST" id="form-register-user">
+          <div class="form-group">
+            <input class="form-control" type="text" name="nombres" id="nombres-user" placeholder="Nombres" required>
           </div>
           <div>
             <input class="input" type="text" name="apellidos" id="apellidos-user" placeholder="Apellidos">

@@ -1,5 +1,6 @@
 package dao;
 
+import interfaces.UsuarioModelInterface;
 import interfaces.VentaModelInterface;
 
 public abstract class DAOFactory {
@@ -9,6 +10,7 @@ public abstract class DAOFactory {
 		public static final int ORACLE=3;
 	
 		public abstract VentaModelInterface getVentaModel();
+		public abstract UsuarioModelInterface getLoginModel();
 		
 		public static DAOFactory getDaoFactory(int tipo) {
 			switch (tipo) {
