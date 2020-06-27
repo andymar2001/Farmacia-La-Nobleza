@@ -12,6 +12,14 @@ public class Usuario {
 	private String telefono_usuario;
 	private String correo_usuario;
 	private char estado_usuario;
+	private String password;
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getDni_usuario() {
 		return dni_usuario;
 	}
