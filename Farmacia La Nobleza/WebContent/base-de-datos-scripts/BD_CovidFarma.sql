@@ -6,7 +6,7 @@ create table Categoria(
 Id_Categoria		int not null,
 Nombre_Categoria	varchar(50) not null,
 Descripcion  		varchar(150) null,
-Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK('A' OR 'I'),
+Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'A' OR Estado like 'I'),
 primary key (Id_Categoria)
 );
 
@@ -17,7 +17,7 @@ Nombre_Contacto		varchar(30) not null,
 Cargo_Contacto		varchar(30) not null,
 Direccion			varchar(60) not null,
 Telefono			varchar(24) not null,
-Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK('A' OR 'I'),
+Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK( Estado like 'A' OR Estado like 'I'),
 primary key (Id_Proveedor)
 );
 
@@ -29,7 +29,7 @@ Id_Categoria		int,
 U_Medida			varchar(100) not null,
 Precio_Unidad		decimal(10,0) not null,
 Unidades_Existencia int null,
-Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK('A' OR 'I'),
+Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK( Estado like 'A' OR Estado like 'I'),
 primary key (Id_Producto),
 foreign key (Id_Categoria) references Categoria(Id_Categoria),
 foreign key (Id_Proveedor) references Proveedor(Id_Proveedor)
@@ -42,7 +42,7 @@ detalle_tipo varchar(100)
 );
 
 /*SOLO ADMINISTRADOR PUEDE CRUD*/
-INSERT INTO tipo_us VALUES(null,'administrador','Encargado de la administraciÃ³n de la pagina');
+INSERT INTO tipo_us VALUES(null,'administrador','Encargado de la administración de la pagina');
 INSERT INTO tipo_us VALUES(null,'repartidor','Encargado de repartir');
 INSERT INTO tipo_us VALUES(null,'cliente','Encargado de estar de miron');
 
@@ -54,8 +54,8 @@ Fec_Nac_Usuario		date not null,
 Celular_Usuario	char(9) not null,
 Telefono_Usuario	varchar(9) null,
 Correo_Usuario		varchar(25) not null,
-ContraseÃ±a	varchar(20) not null,
-Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK('A' OR 'I'),
+Contraseña	varchar(20) not null,
+Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'A' OR Estado like 'I'),
 id_tipo_usario int not null,
 primary key (Dni_Usuario),
 foreign key(id_tipo_usario) references tipo_us(id_tipo_usario)
@@ -75,7 +75,7 @@ CiudadDestinatario 	varchar(15) NULL,
 RegionDestinatario 	varchar(15) NULL,
 CodPostalDestinatario varchar(10) NULL,
 Dni_Usuario			char(8) not null,
-Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK('A' OR 'I'),
+Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'A' OR Estado like 'I'),
 primary key (Id_Pedido),
 foreign key (Dni_Usuario) references Usuario(Dni_Usuario)
 );
@@ -92,6 +92,5 @@ PRIMARY KEY(Id_Producto	,Id_Pedido),
 FOREIGN KEY (Id_Producto) REFERENCES tb_Producto(Id_Producto) ON DELETE RESTRICT ON UPDATE CASCADE,
 FOREIGN KEY (Id_Pedido) REFERENCES Pedido(Id_Pedido) ON DELETE RESTRICT ON UPDATE CASCADE
 );
-
 
 
