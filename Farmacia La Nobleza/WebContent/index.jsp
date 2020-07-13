@@ -22,7 +22,7 @@
 
     <section class="runway section">
       <div class="runway__container container">
-        <h2 class="runway__title title">Los Más Vendidos</h2>
+        <h2 class="runway__title title">Los Más Vendidos huamani</h2>
         <div class="slider-card">
           <div class="slider-card__prev">
             <i class="fas fa-chevron-left"></i>
