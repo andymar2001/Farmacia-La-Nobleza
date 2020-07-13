@@ -42,7 +42,7 @@ detalle_tipo varchar(100)
 );
 
 /*SOLO ADMINISTRADOR PUEDE CRUD*/
-INSERT INTO tipo_us VALUES(null,'administrador','Encargado de la administración de la pagina');
+INSERT INTO tipo_us VALUES(null,'administrador','Encargado de la administraciÃ³n de la pagina');
 INSERT INTO tipo_us VALUES(null,'repartidor','Encargado de repartir');
 INSERT INTO tipo_us VALUES(null,'cliente','Encargado de estar de miron');
 
@@ -54,7 +54,7 @@ Fec_Nac_Usuario		date not null,
 Celular_Usuario	char(9) not null,
 Telefono_Usuario	varchar(9) null,
 Correo_Usuario		varchar(25) not null,
-Contraseña	varchar(20) not null,
+Contrasena	varchar(20) not null,
 Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'A' OR Estado like 'I'),
 id_tipo_usario int not null,
 primary key (Dni_Usuario),
