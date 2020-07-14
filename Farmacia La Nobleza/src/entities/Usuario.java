@@ -7,7 +7,7 @@ public class Usuario {
 	private String dni_usuario;
 	private String nombre_usuario;
 	private String Apellido_usuario;
-	private Date fec_nac_usuario;
+	private String fec_nac_usuario;
 	private String celular_usuario;
 	private String telefono_usuario;
 	private String correo_usuario;
@@ -47,11 +47,11 @@ public class Usuario {
 	public void setApellido_usuario(String apellido_usuario) {
 		Apellido_usuario = apellido_usuario;
 	}
-	public Date getFec_nac_usuario() {
+	public String  getFec_nac_usuario() {
 		return fec_nac_usuario;
 	}
-	public void setFec_nac_usuario(Date fec_nac_usuario) {
-		this.fec_nac_usuario = fec_nac_usuario;
+	public void setFec_nac_usuario(String fecha) {
+		this.fec_nac_usuario = fecha;
 	}
 	public String getCelular_usuario() {
 		return celular_usuario;
