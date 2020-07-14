@@ -13,10 +13,9 @@ import interfaces.UsuarioModelInterface;
 
 public class UsuarioModel implements UsuarioModelInterface {
 
-	
+	Usuario usuario=new Usuario();
 	public List<Usuario> listarRegistro() {
-   List <Usuario> listarReg=new ArrayList<Usuario>();
-		
+		List <Usuario> listarReg=new ArrayList<Usuario>();
 		Connection cn=null;
 		PreparedStatement pstm =null;
 		ResultSet rs =null;
@@ -30,7 +29,7 @@ public class UsuarioModel implements UsuarioModelInterface {
 			rs=pstm.executeQuery();
 			
 			while(rs.next()) {
-				Usuario usuario=new Usuario();
+				
 				
 				usuario.setDni_usuario(rs.getString("Dni_Usuario"));
 				usuario.setNombre_usuario(rs.getString("Nombre_Usuario"));
@@ -51,16 +50,14 @@ public class UsuarioModel implements UsuarioModelInterface {
 	}
 
 	
-	public int RegistroCompra(Usuario usaurio) {
-		Usuario usuario=new Usuario();
+	public int RegistroUsuario(Usuario usuario) {
 		int banderita=-1;
-		
 		Connection cn =null;
 		PreparedStatement pstm=null;
 		
 		try {
 			cn=MysqlDBConexion.getConexion();
-			String sql="insert into Usuario (Dni_Usuario, Nombre_Usuario, Apellido_Usuario, Fec_Nac_Usuario, Celular_Usuario, Telefono_Usuario, Correo_Usuario, Contraseña) values(?,?,?,?,?,?,?,?);";
+			String sql="insert into Usuario values(?,?,?,?,?,?,?,?,default,3);";
 		    
 			pstm=cn.prepareStatement(sql);
 			pstm.setString(1, usuario.getDni_usuario());
@@ -73,6 +70,7 @@ public class UsuarioModel implements UsuarioModelInterface {
 			pstm.setString(8, usuario.getPassword());
 			
 			banderita =pstm.executeUpdate();
+			System.out.println(banderita);
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -80,12 +78,4 @@ public class UsuarioModel implements UsuarioModelInterface {
 		
 		return banderita;
 	}
-	
-	
-	
-	
-	
-	
-	
-
 }

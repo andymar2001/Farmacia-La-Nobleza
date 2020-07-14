@@ -16,9 +16,7 @@
           
           <div class="form-group">
             <input class="input" type="text" name="nombres" id="nombres-user" placeholder="Nombres" required>
-          </div>
-          
-          
+          </div>     
           <div>
             <input class="input" type="text" name="apellidos" id="apellidos-user" placeholder="Apellidos">
           </div>
@@ -40,14 +38,12 @@
           </div>
           
             <div>
-            <input class="input" type="text" name="fecha" id="fecha-user" placeholder="fecha">
+            <input class="input" type="date" name="fecha" id="fecha-user" placeholder="fecha">
           </div>
           
           <div>
             <input class="input" type="password" name="contraseña" id="contraseña-user" placeholder="Contraseña (Minimo 6 caracteres)">
           </div>
-          
-          
           <div>
             <div>
               <input class="button-submit" type="submit" name="register" value="Registrarme">

@@ -36,7 +36,7 @@ foreign key (Id_Proveedor) references Proveedor(Id_Proveedor)
 );
 
 create table tipo_us(
-id_tipo_usario int not null primary key auto_increment,
+id_tipo_usuario int not null primary key auto_increment,
 nombre_tipo varchar(20) not null,
 detalle_tipo varchar(100)
 );
@@ -56,9 +56,9 @@ Telefono_Usuario	varchar(9) null,
 Correo_Usuario		varchar(25) not null,
 Contrasena	varchar(20) not null,
 Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'A' OR Estado like 'I'),
-id_tipo_usario int not null,
+id_tipo_usuario int not null,
 primary key (Dni_Usuario),
-foreign key(id_tipo_usario) references tipo_us(id_tipo_usario)
+foreign key(id_tipo_usuario) references tipo_us(id_tipo_usuario)
 );
 INSERT INTO Usuario VALUES('12345678','Admin','Admin','2020-01-01','123456789','987654321','admin@cibertec.edu.pe','admin',default,1);
 

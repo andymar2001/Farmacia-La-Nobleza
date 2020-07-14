@@ -1,4 +1,4 @@
-package servlet;
+package servlets;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -77,13 +77,15 @@ public class UsuarioServlet extends HttpServlet {
     	   usuario.setCorreo_usuario(correo);
     	   usuario.setPassword(contraseña);
     	   
-    	   int b=dao.RegistroCompra(usuario);
+    	   int b=dao.RegistroUsuario(usuario);
+    	   System.out.println(b);
     	   
     	   if(b==1) {
     		   listarRegistros(request,response);
-    		   request.getRequestDispatcher("/registro-usuario.jsp").forward(request, response);
+    		   response.sendRedirect("index.jsp");
     	   }else {
-    		   request.setAttribute("message", "No registro bein xd");
+    		   System.out.println("No registroooooooooo");
+    		   request.setAttribute("message", "No registro bien");
     		   request.getRequestDispatcher("/registro-usuario.jsp").forward(request, response);
     	   }
     	
