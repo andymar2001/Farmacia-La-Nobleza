@@ -12,8 +12,17 @@ public class Usuario {
 	private String telefono_usuario;
 	private String correo_usuario;
 	private char estado_usuario;
+	private int tipo_us;
 	private String password;
 	
+	
+	
+	public int getTipo_us() {
+		return tipo_us;
+	}
+	public void setTipo_us(int tipo_us) {
+		this.tipo_us = tipo_us;
+	}
 	public String getPassword() {
 		return password;
 	}
