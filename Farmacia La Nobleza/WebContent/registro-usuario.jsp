@@ -42,7 +42,7 @@
           </div>
           
           <div>
-            <input class="input" type="password" name="contraseña" id="contraseña-user" placeholder="Contraseña (Minimo 6 caracteres)">
+            <input class="input" type="password" name="contrasena" id="contraseña-user" placeholder="Contraseña (Minimo 6 caracteres)">
           </div>
           <div>
             <div>

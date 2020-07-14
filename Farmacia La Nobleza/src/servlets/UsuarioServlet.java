@@ -1,11 +1,8 @@
 package servlets;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
-import javax.management.modelmbean.RequiredModelMBean;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,47 +12,39 @@ import javax.servlet.http.HttpServletResponse;
 import dao.DAOFactory;
 import entities.Usuario;
 import interfaces.UsuarioModelInterface;
-import model.UsuarioModel;
 
-/**
- * Servlet implementation class UsuarioServlet
- */
+
 @WebServlet("/UsuarioServlet")
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	DAOFactory daoFactory=DAOFactory.getDaoFactory(DAOFactory.MYSQL);
+	 
+	 UsuarioModelInterface dao=daoFactory.getUsuarioModel();
     
     public UsuarioServlet() {
         super();
         
     }
     
-    protected void Verfica(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+    @Override
+    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    		String tipo=request.getParameter("type");
     	
-    	String tipo=request.getParameter("type");
-    	
-    	if(tipo.equals("registrar")) {
+    		if(tipo.equals("registrar")) {
     		registrar(request,response);
-    	}else {
+    		}else {
     		listarRegistros(request,response);
-    	}
+    		}
     }
     
-    protected void listarRegistros(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-    	 DAOFactory daoFactory=DAOFactory.getDaoFactory(DAOFactory.MYSQL);
-    	 
-    	 UsuarioModelInterface dao=daoFactory.getUsuarioModel();
-    	 
+    public void listarRegistros(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{ 	 
     	 List<Usuario> data=dao.listarRegistro();
     	 request.setAttribute("data", data);
     	 request.getRequestDispatcher("/registro-usuario.jsp").forward(request, response);
     	
     }
     
-    protected void registrar(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
-    	 
-    	DAOFactory daoFactory=DAOFactory.getDaoFactory(DAOFactory.MYSQL);
-    	 UsuarioModelInterface dao=daoFactory.getUsuarioModel();
+    public void registrar(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
     	 Usuario usuario =new Usuario();
     	 
     	
@@ -66,7 +55,7 @@ public class UsuarioServlet extends HttpServlet {
     	   String celular=request.getParameter("celular");
     	   String telefono=request.getParameter("telefono");
     	   String correo=request.getParameter("correo");
-    	   String contraseña=request.getParameter("contraseña");
+    	   String contraseña=request.getParameter("contrasena");
     	   
     	   usuario.setDni_usuario(dni);
     	   usuario.setNombre_usuario(nombre);
@@ -76,13 +65,12 @@ public class UsuarioServlet extends HttpServlet {
     	   usuario.setTelefono_usuario(telefono);
     	   usuario.setCorreo_usuario(correo);
     	   usuario.setPassword(contraseña);
-    	   
+    	   System.out.println(usuario.getPassword());
     	   int b=dao.RegistroUsuario(usuario);
-    	   System.out.println(b);
+    	   
     	   
     	   if(b==1) {
-    		   listarRegistros(request,response);
-    		   response.sendRedirect("index.jsp");
+    		   response.sendRedirect("login.jsp");
     	   }else {
     		   System.out.println("No registroooooooooo");
     		   request.setAttribute("message", "No registro bien");

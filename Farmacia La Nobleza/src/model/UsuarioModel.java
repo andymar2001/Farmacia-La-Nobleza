@@ -63,7 +63,7 @@ public class UsuarioModel implements UsuarioModelInterface {
 			pstm.setString(1, usuario.getDni_usuario());
 			pstm.setString(2, usuario.getNombre_usuario());
 			pstm.setString(3, usuario.getApellido_usuario());
-			pstm.setString(4,  usuario.getFec_nac_usuario());
+			pstm.setString(4, usuario.getFec_nac_usuario());
 			pstm.setString(5, usuario.getCelular_usuario());
 			pstm.setString(6, usuario.getTelefono_usuario());
 			pstm.setString(7, usuario.getCorreo_usuario());
