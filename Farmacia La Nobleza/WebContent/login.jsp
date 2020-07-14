@@ -28,41 +28,6 @@
   </main>
 
 <%@ include file="snippets/footer.jsp" %>
-<script type="text/javascript">
-
-	$(document).ready(function(){
-		
-	$('#form-login').bootstrapValidator({
-		fields:{
-			usuario:{
-				validators:{
-					notEmpty:{
-                        message: "El USUARIO es OBLIGATORIO para iniciar sesión"
-                    },
-                    stringLength:{
-                        min: 8,
-                        max: 8,
-                        message:"El USUARIO es su DNI"
-                    }
-				}
-			},
-			contrasena:{
-				validators:{
-					notEmpty:{
-                        message: "La CONTRASEÑA es OBLIGATORIA para iniciar sesión"
-                    }
-				}
-			}
-		}
-	  });
-	$('#btn-login').click(function() {
-        $('#form-login').bootstrapValidator('validate');
-        
-     });
-	
-	});
-
-</script>
 </body>
 
 </html>
