@@ -1,5 +1,5 @@
 <%@ include file="snippets/head.jsp" %>
-<title>Inicio - Farmacia La Nobleza</title>
+<title>Inicio - Farmacia La Nobleza aqui estuvo ericson</title>
 
 </head>
 
