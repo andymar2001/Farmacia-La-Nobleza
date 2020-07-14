@@ -1,3 +1,4 @@
+<%@page import="utils.Constantes"%>
 <header class="header">
   <h1 class="ocultar">Farmacia La Nobleza</h1>
   <div class="header__container">
@@ -21,6 +22,8 @@
           </div>
         </div>
         <div class="header__top__user">
+        <%	Boolean activeSession=(Boolean) session.getAttribute(Constantes.LOGIN);
+     		if(activeSession==null || activeSession==false){%>
           <a href="registro-usuario.jsp">
             <p>Registrarme</p>
           </a>
@@ -28,6 +31,16 @@
             <i class="fas fa-sign-in-alt"></i>
             <p>Iniciar Sesión</p>
           </a>
+          <%}else{ String nombreUs = (String) session.getAttribute(Constantes.NOMBRE_US); %>
+          <a href="login.jsp">
+            <i class="far fa-user-circle"></i>
+            <p>Mi Perfil - <%=nombreUs.toUpperCase() %></p>
+          </a>
+          <a href="LoginServlet?type=logout" onclick="return confirm('Está seguro que desea Salir??')">
+            <i class="fas fa-power-off"></i>
+            <p>Salir</p>
+          </a>
+          <%} %>
         </div>
       </div>
 

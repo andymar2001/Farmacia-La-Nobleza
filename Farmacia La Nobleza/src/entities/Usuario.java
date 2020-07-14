@@ -7,11 +7,11 @@ public class Usuario {
 	private String dni_usuario;
 	private String nombre_usuario;
 	private String Apellido_usuario;
-	private Date fec_nac_usuario;
+	private String fec_nac_usuario;
 	private String celular_usuario;
 	private String telefono_usuario;
 	private String correo_usuario;
-	private char estado_usuario;
+	private String estado_usuario;
 	private int tipo_us;
 	private String password;
 	
@@ -47,10 +47,10 @@ public class Usuario {
 	public void setApellido_usuario(String apellido_usuario) {
 		Apellido_usuario = apellido_usuario;
 	}
-	public Date getFec_nac_usuario() {
+	public String getFec_nac_usuario() {
 		return fec_nac_usuario;
 	}
-	public void setFec_nac_usuario(Date fec_nac_usuario) {
+	public void setFec_nac_usuario(String fec_nac_usuario) {
 		this.fec_nac_usuario = fec_nac_usuario;
 	}
 	public String getCelular_usuario() {
@@ -71,10 +71,10 @@ public class Usuario {
 	public void setCorreo_usuario(String correo_usuario) {
 		this.correo_usuario = correo_usuario;
 	}
-	public char getEstado_usuario() {
+	public String getEstado_usuario() {
 		return estado_usuario;
 	}
-	public void setEstado_usuario(char estado_usuario) {
+	public void setEstado_usuario(String estado_usuario) {
 		this.estado_usuario = estado_usuario;
 	}
 	

@@ -1,5 +1,6 @@
 package dao;
 
+import interfaces.LoginModelInterface;
 import interfaces.UsuarioModelInterface;
 import interfaces.VentaModelInterface;
 
@@ -11,6 +12,7 @@ public abstract class DAOFactory {
 	
 		public abstract VentaModelInterface getVentaModel();
 		public abstract UsuarioModelInterface getUsuarioModel();
+		public abstract LoginModelInterface getLogin();
 		
 		public static DAOFactory getDaoFactory(int tipo) {
 			switch (tipo) {
