@@ -47,19 +47,11 @@ public class Usuario {
 	public void setApellido_usuario(String apellido_usuario) {
 		Apellido_usuario = apellido_usuario;
 	}
-<<<<<<< HEAD
 	public String getFec_nac_usuario() {
 		return fec_nac_usuario;
 	}
 	public void setFec_nac_usuario(String fec_nac_usuario) {
 		this.fec_nac_usuario = fec_nac_usuario;
-=======
-	public String  getFec_nac_usuario() {
-		return fec_nac_usuario;
-	}
-	public void setFec_nac_usuario(String fecha) {
-		this.fec_nac_usuario = fecha;
->>>>>>> premaster
 	}
 	public String getCelular_usuario() {
 		return celular_usuario;
@@ -85,7 +77,4 @@ public class Usuario {
 	public void setEstado_usuario(String estado_usuario) {
 		this.estado_usuario = estado_usuario;
 	}
-	
-	
-
 }
