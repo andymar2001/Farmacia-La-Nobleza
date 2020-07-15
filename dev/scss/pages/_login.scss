@@ -7,4 +7,12 @@
     display: grid;
     gap: 2rem;
   }
+  &__registro {
+    font-size: 1.4rem;
+    & a {
+      display: inline-block;
+      margin-left: 0.5rem;
+      color: $primary-color;
+    }
+  }
 }

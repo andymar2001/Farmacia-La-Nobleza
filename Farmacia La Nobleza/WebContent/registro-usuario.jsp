@@ -25,33 +25,41 @@
         <input type="hidden" name="type" value="<%=(activeSession!=null)? "update":"registrar" %>">
           
           <div class="form-group">
+          	<label class="label" for="nombres-user">Nombres:</label>
             <input class="input" type="text" name="nombres" id="nombres-user" placeholder="Nombres" value="<%=(activeSession!=null)? nombres:""%>">
           </div>     
           <div>
+          	<label class="label" for="apellidos-user">Apellidos:</label>
             <input class="input" type="text" name="apellidos" id="apellidos-user" placeholder="Apellidos" value="<%=(activeSession!=null)? apellidos:""%>">
           </div>
           
-          <div>
-            <input class="input" type="<%=(activeSession!=null)? "hidden":"text" %>" name="dni" id="dni-user" placeholder="Dni" value="<%=(activeSession!=null)? dni:""%>" >
+          <div class="<%=(activeSession!=null)? "ocultar":"form-group" %>">
+          	<label class="label" for="dni-user">Dni:</label>
+            <input class="input" type="text" name="dni" id="dni-user" placeholder="Dni" value="<%=(activeSession!=null)? dni:""%>" >
           </div>
           
           <div>
+          	<label class="label" for="celular-user">Celular:</label>
             <input class="input" type="text" name="celular" id="celular-user" placeholder="Celular" maxlength="9" value="<%=(activeSession!=null)? celular:""%>">
           </div>
           
           <div>
+          	<label class="label" for="telefono-user">Telefono:</label>
             <input class="input" type="text" name="telefono" id="telefono-user" placeholder="Telefono" maxlength="9" value="<%=(activeSession!=null)? telefono:""%>">
           </div>
           
           <div>
+          	<label class="label" for="correo-user">Correo:</label>
             <input class="input" type="email" name="correo" id="correo-user" placeholder="Correo" value="<%=(activeSession!=null)? correo:""%>">
           </div>
           
-            <div>
+          <div>
+         	 <label class="label" for="fecha-user">Fecha Nacimiento:</label>
             <input class="input" type="date" name="fecha" id="fecha-user" placeholder="fecha" value="<%=(activeSession!=null)? fecha:""%>">
           </div>
           
           <div>
+          	<label class="label" for="contraseña-user">Contraseña:</label>
             <input class="input" type="password" name="contrasena" id="contraseña-user" placeholder="Contraseña (Minimo 6 caracteres)" value="<%=(activeSession!=null)? contrasena:""%>">
           </div>
           <div>

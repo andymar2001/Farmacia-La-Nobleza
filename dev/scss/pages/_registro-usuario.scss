@@ -1,14 +1,18 @@
-.registro-usuario{
-  &__container{
+.registro-usuario {
+  &__container {
     width: 60%;
   }
-  &__title{
-
+  &__title {
   }
-  &__form{
+  &__form {
     margin-top: 2rem;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    & div {
+      &:last-child {
+        grid-column: 1/2;
+      }
+    }
   }
 }

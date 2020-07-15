@@ -446,6 +446,27 @@ a {
   color: var(--primary-color);
 }
 
+.checkbox {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group label {
+  margin-top: 0.3rem;
+}
+
+.label {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
 .button {
   cursor: pointer;
   background-color: var(--secondary-color);
@@ -760,6 +781,25 @@ a {
   margin-left: 1rem;
 }
 
+.notificacion--error {
+  background-color: #dc3545;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 40%;
+  transform: translateY(-50%);
+  right: 2rem;
+  color: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  z-index: 20;
+}
+
+.notificacion--error svg {
+  font-size: 2.5rem;
+  margin-right: .8rem;
+}
+
 .banner {
   overflow-x: hidden;
   outline: none;
@@ -823,6 +863,10 @@ a {
   gap: 2rem;
 }
 
+.registro-usuario__form div:last-child {
+  grid-column: 1/2;
+}
+
 .login__container {
   width: 30%;
 }
@@ -831,6 +875,16 @@ a {
   margin-top: 2rem;
   display: grid;
   gap: 2rem;
+}
+
+.login__registro {
+  font-size: 1.4rem;
+}
+
+.login__registro a {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: var(--primary-color);
 }
 
 .productos {

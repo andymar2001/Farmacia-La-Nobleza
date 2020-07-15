@@ -24,24 +24,32 @@
         <form class="login__form" action="LoginServlet" method="POST" id="form-login">
         	<input type="hidden" name="type" value="login">
           <div>
-            <input class="input" type="text" name="usuario" id="usuario-login" placeholder="Usuario" value="<%=(dnilCookie!=null)? dnilCookie:""%>">
+          	<label class="label" for="usuario-login">Dni:</label>
+            <input class="input" type="text" name="usuario" id="usuario-login" placeholder="Dni" value="<%=(dnilCookie!=null)? dnilCookie:""%>">
           </div>
           <div>
+          	<label class="label" for="contrasena-login">Contraseña:</label>
             <input class="input" type="password" name="contrasena" id="contrasena-login" placeholder="Contraseña">
           </div>         
-          <div>
-            <input type="checkbox" name="checkRemember" value="checkRemember">
-		    <label class="form-check-label">Recordar usuario</label>
+          <div class="checkbox-group">
+            <input class="checkbox" type="checkbox" name="checkRemember" value="checkRemember" id="check-recordar">
+		    <label for="check-recordar" class="form-check-label">Recordar usuario</label>
           </div>
           <div>
             <div>
               <input class="button-submit" type="submit" name="login" value="Iniciar Sesión" id="btn-login">
             </div>
           </div>
+          <p class="login__registro">¿No estas registrado?<a href="registro-usuario.jsp">Registrate</a></p>
         </form>
       </div>
     </section>
   </main>
+  <div class="notificacion--error">
+ 	<i class="fas fa-times"></i>
+  	<p class="notificacion--error__text">Error al iniciar sesión</p>
+  </div>
+  
 
 <%@ include file="snippets/footer.jsp" %>
 </body>

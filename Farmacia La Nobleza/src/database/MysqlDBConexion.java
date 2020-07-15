@@ -13,9 +13,7 @@ public class MysqlDBConexion {
 		  String url="jdbc:mysql://localhost:3306/"+nombreBD+"?useUnicode=true&use"
 				 +"JDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&"
 				 +"serverTimezone=UTC";
-		 
 		 Connection cn = null;
-		
 		try {
 			//obtener el drivers
 			Class.forName("com.mysql.jdbc.Driver");
