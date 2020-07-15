@@ -115,6 +115,12 @@
     padding: 1.5rem 3rem;
     cursor: pointer;
     position: relative;
+    @include b-1496{
+      padding: 1.5rem 0;
+    }
+    @include b-1280{
+      flex: auto;
+    }
     &::after {
       content: "";
       height: 100%;
@@ -132,6 +138,9 @@
       font-size: 3rem;
       color: $secondary-color;
       transition: color 0.8s;
+      @include b-1496{
+        font-size: 2rem;
+      }
     }
     &:hover svg {
       color: $primary-color;
@@ -143,6 +152,13 @@
       font-size: 1.5rem;
       text-align: center;
       white-space: nowrap;
+      @include b-1496{
+        font-size: 1.2rem;
+      }
+      @include b-1280{
+        font-size: 1.1rem;
+        margin-left: .7rem;
+      }
     }
   }
 }

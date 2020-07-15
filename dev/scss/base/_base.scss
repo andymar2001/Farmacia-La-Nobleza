@@ -73,6 +73,9 @@ a {
   @include b-1600{
     max-width: 120rem;
   }
+  @include b-1280{
+    max-width: 100rem;
+  }
 }
 .title {
   font-size: 3.6rem;

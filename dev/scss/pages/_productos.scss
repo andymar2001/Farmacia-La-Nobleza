@@ -1,0 +1,78 @@
+.productos{
+  background-color: rgb(240, 240, 240);
+  padding-top: 0;
+  &__2fr{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 2rem;
+  }
+  &__top{
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+  }
+  &__icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    font-size: 4rem;
+    color: $secondary-color;
+  }
+  &__title{
+    font-size: 3rem;
+    margin-left: 1rem;
+  }
+  &__filtro{
+    margin-top: 2rem;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: .5rem;
+    &__item{
+      display: flex;
+      align-items: center;
+      line-height: 1;
+      margin-top: 1rem;
+      &:first-child{
+        margin-top: 0;
+      }
+      & input{
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+      & label{
+        font-size: 1.4rem;
+        margin-left: .8rem;
+        margin-top: .2rem;
+      }
+      &:hover{
+        color: $primary-color;
+      }
+    }
+  }
+  &__flex{
+    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & select{
+      width: auto;
+    }
+  }
+  &__frase{
+    font-weight: 700;
+    font-size: 2.5rem;
+  }
+  &__grid{
+    display: grid;
+    margin-top: 2rem;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    & .card{
+      margin: 0;
+    }
+  }
+}

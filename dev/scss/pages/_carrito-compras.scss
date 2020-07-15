@@ -1,0 +1,131 @@
+.carrito-compras {
+  padding-top: 0rem;
+  &__container {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 2.5fr 1fr;
+  }
+  &__top {
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+  }
+  &__title {
+    color: $primary-color;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+  &__productos {
+    color: $primary-color;
+    font-weight: 700;
+    margin-left: 1rem;
+    font-size: 2rem;
+  }
+  &__table {
+    margin-top: 1rem;
+    border-spacing: 0;
+    width: 100%;
+    box-shadow: 0px 0px 10px 1px #ccc;
+    & thead {
+      background-color: $primary-color;
+      color: #fff;
+    }
+    & th {
+      padding: 1.5rem 2rem;
+    }
+    &__row {
+      &:nth-child(even) {
+        background-color: rgb(243, 243, 243);
+      }
+    }
+    &__producto {
+      align-items: center;
+      display: flex;
+    }
+    &__img {
+      flex: none;
+      width: 8rem;
+    }
+    &__data {
+      margin-left: 1rem;
+      font-size: 1.4rem;
+      text-align: left;
+      &__title {
+        color: $primary-color;
+      }
+    }
+    &__number {
+      & input {
+        text-align: center;
+        width: 10rem;
+        border: none;
+        font-size: 2rem;
+        padding: 0.5rem;
+        &:focus {
+          outline: 1px solid #ccc;
+        }
+      }
+    }
+    &__delete {
+      & svg {
+        cursor: pointer;
+      }
+    }
+  }
+  &__pagar {
+    margin-top: 1rem;
+    &__title {
+      background-color: $primary-color;
+      color: #fff;
+      font-size: 2.3rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 1rem 0;
+    }
+    &__precio {
+      margin-top: 0.5rem;
+      text-align: center;
+      font-size: 4rem;
+      font-weight: 700;
+    }
+    &__text {
+      text-align: center;
+    }
+    &__delivery {
+      background-color: rgb(231, 231, 231);
+      margin: 1rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 0;
+      &__title {
+        color: $primary-color;
+        font-weight: 700;
+      }
+      &__subtitle {
+        color: $primary-color;
+        font-size: 1.2rem;
+      }
+      &__icon {
+        font-size: 5rem;
+        color: $primary-color;
+      }
+      &__fecha {
+        font-weight: 700;
+      }
+    }
+  }
+  &__frase {
+    text-align: center;
+    font-size: 2.5rem;
+    color: $primary-color;
+    font-weight: 700;
+  }
+  &__submit{
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 2rem;
+    width: 100%;
+  }
+}
