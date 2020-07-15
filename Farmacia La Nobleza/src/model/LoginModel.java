@@ -12,15 +12,6 @@ import interfaces.LoginModelInterface;
 
 public class LoginModel implements LoginModelInterface {
 	
-	
-	public Date fechaObjeto;
-	public Date newFecha;
-	public Date newFechaSql;
-	public SimpleDateFormat formato_AMD=new SimpleDateFormat("yyyy-MM-dd");
-	public SimpleDateFormat formato_DMA=new SimpleDateFormat("EEEE, dd 'de' MMMM 'del' yyyy");
-	public SimpleDateFormat formato_DMA2=new SimpleDateFormat("dd-MM-yyyy");
-	public String fechachange="";
-
 		Usuario usuario= new Usuario();
 		Connection cn = null;
 		PreparedStatement pstm = null;
@@ -41,16 +32,13 @@ public class LoginModel implements LoginModelInterface {
 				usuario.setDni_usuario(rs.getString("Dni_Usuario"));
 				usuario.setNombre_usuario(rs.getString("Nombre_Usuario"));
 				usuario.setApellido_usuario(rs.getString("Apellido_Usuario"));
-				fechaObjeto=new Date();
-				fechaObjeto=formato_AMD.parse(rs.getString("Fec_Nac_Usuario"));
-				fechachange=formato_DMA2.format(fechaObjeto);
-				usuario.setFec_nac_usuario(fechachange);
+				usuario.setFec_nac_usuario(rs.getString("Fec_Nac_Usuario"));
 				usuario.setCelular_usuario(rs.getString("Celular_Usuario"));
 				usuario.setTelefono_usuario(rs.getString("Telefono_Usuario"));
 				usuario.setCorreo_usuario(rs.getString("Correo_Usuario"));
 				usuario.setPassword(rs.getString("Contrasena"));
 				usuario.setEstado_usuario(rs.getString("Estado"));
-				usuario.setTipo_us(rs.getInt("id_tipo_usario"));
+				usuario.setTipo_us(rs.getInt("id_tipo_usuario"));
 				
 				System.out.println(usuario.getNombre_usuario());
 				

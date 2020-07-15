@@ -32,7 +32,7 @@
             <p>Iniciar Sesión</p>
           </a>
           <%}else{ String nombreUs = (String) session.getAttribute(Constantes.NOMBRE_US); %>
-          <a href="login.jsp">
+          <a href="registro-usuario.jsp">
             <i class="far fa-user-circle"></i>
             <p>Mi Perfil - <%=nombreUs.toUpperCase() %></p>
           </a>

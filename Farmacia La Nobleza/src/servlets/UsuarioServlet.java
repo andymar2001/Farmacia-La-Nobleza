@@ -32,8 +32,10 @@ public class UsuarioServlet extends HttpServlet {
     	
     		if(tipo.equals("registrar")) {
     		registrar(request,response);
-    		}else {
+    		}else if(tipo.equals("listarUsuarios")) {
     		listarRegistros(request,response);
+    		}else if(tipo.equals("update")) {
+    			updateUsuario(request,response);
     		}
     }
     
@@ -45,6 +47,7 @@ public class UsuarioServlet extends HttpServlet {
     }
     
     public void registrar(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+
     	 Usuario usuario =new Usuario();
     	 
     	
@@ -76,6 +79,13 @@ public class UsuarioServlet extends HttpServlet {
     		   request.setAttribute("message", "No registro bien");
     		   request.getRequestDispatcher("/registro-usuario.jsp").forward(request, response);
     	   }
+    	
+    }
+    
+    
+    public void updateUsuario(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
+    	
+    	
     	
     }
 

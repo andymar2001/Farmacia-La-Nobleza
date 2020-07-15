@@ -1,52 +1,62 @@
 <%@ include file="snippets/head.jsp" %>
-<title>Registro Usuario - Farmacia La Nobleza</title>
+<% Boolean activeSessionHead=(Boolean) session.getAttribute(Constantes.LOGIN); %>
+<title><%=(activeSessionHead!=null)? "Mi perfil - Farmacia la Nobleza":"Registro Usuario - Farmacia La Nobleza"%></title>
 
 </head>
 
 <body>
   <%@ include file="snippets/header.jsp" %>
-
+<%	String nombres=(String) session.getAttribute(Constantes.NOMBRE_US); 
+	String apellidos=(String) session.getAttribute(Constantes.APELLIDO_US);
+	String dni=(String) session.getAttribute(Constantes.DNI_US);
+	String celular=(String) session.getAttribute(Constantes.CELULAR_US);
+	String telefono=(String) session.getAttribute(Constantes.TELEFONO_US);
+	if(telefono==null||telefono.equals("")||telefono.length()==0)
+		telefono="-";
+	String correo = (String) session.getAttribute(Constantes.CORREO_US);
+	String fecha=(String) session.getAttribute(Constantes.FECHA_US);
+	String contrasena=(String) session.getAttribute(Constantes.CONTRA_US);%>
   <main class="main">
     <section class="registro-usuario section">
       <div class="registro-usuario__container container">
-        <h2 class="registro-usuario__title title">Registro</h2>
+        <h2 class="registro-usuario__title title"><%=(activeSession!=null)? "Mi Perfil":"Registro"%></h2>
         
         <form class="form registro-usuario__form" action="UsuarioServlet" method="post" id="form-register-user">
-        <input type="hidden" name="type" value="registrar">
+        <input type="hidden" name="type" value="<%=(activeSession!=null)? "update":"registrar" %>">
           
           <div class="form-group">
-            <input class="input" type="text" name="nombres" id="nombres-user" placeholder="Nombres" required>
+            <input class="input" type="text" name="nombres" id="nombres-user" placeholder="Nombres" value="<%=(activeSession!=null)? nombres:""%>">
           </div>     
           <div>
-            <input class="input" type="text" name="apellidos" id="apellidos-user" placeholder="Apellidos">
+            <input class="input" type="text" name="apellidos" id="apellidos-user" placeholder="Apellidos" value="<%=(activeSession!=null)? apellidos:""%>">
           </div>
           
           <div>
-            <input class="input" type="text" name="dni" id="dni-user" placeholder="Dni">
+            <input class="input" type="<%=(activeSession!=null)? "hidden":"text" %>" name="dni" id="dni-user" placeholder="Dni" value="<%=(activeSession!=null)? dni:""%>" >
           </div>
           
           <div>
-            <input class="input" type="text" name="celular" id="celular-user" placeholder="Celular" maxlength="9">
+            <input class="input" type="text" name="celular" id="celular-user" placeholder="Celular" maxlength="9" value="<%=(activeSession!=null)? celular:""%>">
           </div>
           
           <div>
-            <input class="input" type="text" name="telefono" id="telefono-user" placeholder="Telefono" maxlength="9">
+            <input class="input" type="text" name="telefono" id="telefono-user" placeholder="Telefono" maxlength="9" value="<%=(activeSession!=null)? telefono:""%>">
           </div>
           
           <div>
-            <input class="input" type="email" name="correo" id="correo-user" placeholder="Correo">
+            <input class="input" type="email" name="correo" id="correo-user" placeholder="Correo" value="<%=(activeSession!=null)? correo:""%>">
           </div>
           
             <div>
-            <input class="input" type="date" name="fecha" id="fecha-user" placeholder="fecha">
+            <input class="input" type="date" name="fecha" id="fecha-user" placeholder="fecha" value="<%=(activeSession!=null)? fecha:""%>">
           </div>
           
           <div>
-            <input class="input" type="password" name="contrasena" id="contraseña-user" placeholder="Contraseña (Minimo 6 caracteres)">
+            <input class="input" type="password" name="contrasena" id="contraseña-user" placeholder="Contraseña (Minimo 6 caracteres)" value="<%=(activeSession!=null)? contrasena:""%>">
           </div>
           <div>
             <div>
-              <input class="button-submit" type="submit" name="register" value="Registrarme">
+              <input class="button-submit" type="submit" name="register" value="<%=(activeSession!=null)? "Actualizar Perfil":"Registrarme"%>">
             </div>
           </div>
         </form>

@@ -13,12 +13,13 @@ import interfaces.UsuarioModelInterface;
 
 public class UsuarioModel implements UsuarioModelInterface {
 
+	Connection cn=null;
+	PreparedStatement pstm =null;
+	ResultSet rs =null;
 	Usuario usuario=new Usuario();
+	
 	public List<Usuario> listarRegistro() {
 		List <Usuario> listarReg=new ArrayList<Usuario>();
-		Connection cn=null;
-		PreparedStatement pstm =null;
-		ResultSet rs =null;
 		
 		try {
 			cn=MysqlDBConexion.getConexion();
@@ -52,8 +53,6 @@ public class UsuarioModel implements UsuarioModelInterface {
 	
 	public int RegistroUsuario(Usuario usuario) {
 		int banderita=-1;
-		Connection cn =null;
-		PreparedStatement pstm=null;
 		
 		try {
 			cn=MysqlDBConexion.getConexion();
@@ -72,10 +71,63 @@ public class UsuarioModel implements UsuarioModelInterface {
 			banderita =pstm.executeUpdate();
 			System.out.println(banderita);
 		}catch (Exception e) {
-			// TODO: handle exception
+			
 			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
 		}
 		
 		return banderita;
+	}
+
+
+	@Override
+	public int UpdateUsuario(Usuario usuario) {
+		
+		int salida =-1;
+		try {
+			
+			cn = MysqlDBConexion.getConexion();
+			String sql="UPDATE usuario SET Nombre_Usuario = ?, Apellido_Usuario = ?, Fec_Nac_Usuario = ?, Celular_Usuario = ?, Telefono_Usuario = ?, Correo_Usuario = ?, Contrasena = ? WHERE Dni_Usuario = ?;";
+			pstm = cn.prepareStatement(sql);
+			pstm.setString(1, usuario.getNombre_usuario());
+			pstm.setString(2, usuario.getApellido_usuario());
+			pstm.setString(3, usuario.getFec_nac_usuario());
+			pstm.setString(4, usuario.getCelular_usuario());
+			if(usuario.getTelefono_usuario()==null||usuario.getTelefono_usuario().equals(" ")) {
+			pstm.setString(5, null);	
+			}else {pstm.setString(5, usuario.getTelefono_usuario());}
+			pstm.setString(6, usuario.getCorreo_usuario());
+			pstm.setString(7, usuario.getPassword());
+			pstm.setString(8, usuario.getDni_usuario());
+			
+			salida=pstm.executeUpdate();
+			
+		} catch (Exception e) {
+			
+			System.out.println(e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		return salida;
 	}
 }
