@@ -467,6 +467,11 @@ a {
   display: block;
 }
 
+.message-error {
+  color: #dc3545;
+  margin-top: 0.5rem;
+}
+
 .button {
   cursor: pointer;
   background-color: var(--secondary-color);

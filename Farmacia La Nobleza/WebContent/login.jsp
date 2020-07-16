@@ -45,12 +45,6 @@
       </div>
     </section>
   </main>
-  <div class="notificacion--error">
- 	<i class="fas fa-times"></i>
-  	<p class="notificacion--error__text">Error al iniciar sesión</p>
-  </div>
-  
-
 <%@ include file="snippets/footer.jsp" %>
 </body>
 
