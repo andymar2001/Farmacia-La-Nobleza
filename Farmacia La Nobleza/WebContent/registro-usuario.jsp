@@ -60,7 +60,7 @@
           
           <div>
           	<label class="label" for="contraseña-user">Contraseña:</label>
-            <input class="input" type="password" name="contrasena" id="contraseña-user" placeholder="Contraseña (Minimo 6 caracteres)" value="<%=(activeSession!=null)? contrasena:""%>">
+            <input class="input" type="password" name="contrasena" id="contrasena-user" placeholder="Contraseña (Minimo 6 caracteres)" value="<%=(activeSession!=null)? contrasena:""%>">
           </div>
           <div>
             <div>
