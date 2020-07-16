@@ -86,6 +86,37 @@ public class UsuarioServlet extends HttpServlet {
     public void updateUsuario(HttpServletRequest request,HttpServletResponse response) throws ServletException,IOException{
     	
     	
+    	Usuario usuario =new Usuario();
+   	 
+    	
+ 	   String dni=request.getParameter("dni");
+ 	   String nombre =request.getParameter("nombres");
+ 	   String apellido=request.getParameter("apellidos");
+ 	   String fecha=request.getParameter("fecha");
+ 	   String celular=request.getParameter("celular");
+ 	   String telefono=request.getParameter("telefono");
+ 	   String correo=request.getParameter("correo");
+ 	   String contraseña=request.getParameter("contrasena");
+ 	   
+ 	   usuario.setDni_usuario(dni);
+ 	   usuario.setNombre_usuario(nombre);
+ 	   usuario.setApellido_usuario(apellido);
+ 	   usuario.setFec_nac_usuario(fecha);
+ 	   usuario.setCelular_usuario(celular);
+ 	   usuario.setTelefono_usuario(telefono);
+ 	   usuario.setCorreo_usuario(correo);
+ 	   usuario.setPassword(contraseña);
+ 	   System.out.println(usuario.getPassword());
+ 	   int b=dao.UpdateUsuario(usuario);
+ 	   
+ 	   
+ 	   if(b==1) {
+ 		   response.sendRedirect("login.jsp");
+ 	   }else {
+ 		   System.out.println("No registroooooooooo");
+ 		   request.setAttribute("message", "No registro bien");
+ 		   request.getRequestDispatcher("/registro-usuario.jsp").forward(request, response);
+ 	   }
     	
     }
 

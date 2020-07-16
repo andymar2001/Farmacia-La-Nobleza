@@ -43,6 +43,8 @@ public class UsuarioModel implements UsuarioModelInterface {
 				listarReg.add(usuario);
 			}
 			
+			
+			
 		}catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
@@ -51,7 +53,9 @@ public class UsuarioModel implements UsuarioModelInterface {
 	}
 
 	
+
 	public int RegistroUsuario(Usuario usuario) {
+
 		int banderita=-1;
 		
 		try {
