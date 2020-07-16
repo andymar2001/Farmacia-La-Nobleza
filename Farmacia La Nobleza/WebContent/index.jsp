@@ -36,7 +36,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -47,7 +47,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -58,7 +58,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -69,7 +69,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -80,7 +80,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
           </div>
@@ -106,7 +106,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -117,7 +117,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -128,7 +128,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -139,7 +139,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
             <article class="card">
@@ -150,7 +150,7 @@
                 <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
                 <p class="card__price">2.30</p>
                 <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
               </div>
             </article>
           </div>

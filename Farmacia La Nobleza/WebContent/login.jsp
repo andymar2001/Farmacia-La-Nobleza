@@ -45,6 +45,12 @@
       </div>
     </section>
   </main>
+  <% String mensaje_error=(String) request.getAttribute("msj");
+  	if(mensaje_error!=null){ %>
+  <div class="notificacion--error">
+  	<i class="fas fa-times"></i>
+      <p class="notificacion--error__text"> Error: <%=mensaje_error %></p>
+  </div><%} %>
 <%@ include file="snippets/footer.jsp" %>
 </body>
 

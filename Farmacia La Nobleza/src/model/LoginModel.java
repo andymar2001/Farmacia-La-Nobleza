@@ -12,7 +12,7 @@ import interfaces.LoginModelInterface;
 
 public class LoginModel implements LoginModelInterface {
 	
-		Usuario usuario= new Usuario();
+		Usuario usuario= null;
 		Connection cn = null;
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -28,7 +28,7 @@ public class LoginModel implements LoginModelInterface {
 			pstm.setString(2, clave);
 			rs = pstm.executeQuery();
 			if(rs.next()) {
-				
+				usuario= new Usuario();
 				usuario.setDni_usuario(rs.getString("Dni_Usuario"));
 				usuario.setNombre_usuario(rs.getString("Nombre_Usuario"));
 				usuario.setApellido_usuario(rs.getString("Apellido_Usuario"));

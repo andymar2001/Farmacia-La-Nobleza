@@ -117,7 +117,6 @@ const formRegisterUserIsValid = {
   celular: false,
   telefono: false,
   correo: false,
-  fecha: false,
   contrasena: false,
 };
 
@@ -173,7 +172,7 @@ if (
       ui.removerElementoSiguiente(celularUser);
     } else {
       formRegisterUserIsValid.celular = false;
-      celularUser.after(ui.messageError("Ingresar DNI"));
+      celularUser.after(ui.messageError("Ingresar celular"));
     }
   });
 
