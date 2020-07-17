@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class MysqlDBConexion {
 	
 	public static Connection getConexion() {
-		 /*String nombreBD="CovidFarma";
+		 String nombreBD="CovidFarma";
 		  String usuario="root";
 		 String contraseña="mysql";
 		  String url="jdbc:mysql://localhost:3306/"+nombreBD+"?useUnicode=true&use"
@@ -32,12 +32,12 @@ public class MysqlDBConexion {
 		}catch (SQLException e) {
 			System.out.print("ocurre una ecxepcion con sql eception :" +e.getMessage());
 		}
-		return cn;*/
+		return cn;
 		
 		
 		
 		
-		
+		/*
 		 String nombreBD="CovidFarma";
 		  String usuario="root";
 		 String contraseña="mysql";
@@ -61,7 +61,7 @@ public class MysqlDBConexion {
 		}catch (SQLException e) {
 			System.out.print("ocurre una ecxepcion con sql eception :" +e.getMessage());
 		}
-		return cn;
+		return cn;*/
 	}
 
 }
