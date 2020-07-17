@@ -123,6 +123,7 @@ const formRegisterUserIsValid = {
   confirmar: false,
 };
 
+
 if (
   formRegisterUser &&
   nombresUser &&

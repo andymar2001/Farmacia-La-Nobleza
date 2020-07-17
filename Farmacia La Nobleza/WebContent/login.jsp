@@ -52,6 +52,7 @@
       <p class="notificacion--error__text"> Error: <%=mensaje_error %></p>
   </div><%} %>
 <%@ include file="snippets/footer.jsp" %>
+
 </body>
 
 </html>

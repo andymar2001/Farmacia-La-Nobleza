@@ -70,6 +70,13 @@
           	<label class="label" for="contraseña-user">Contraseña:</label>
             <input class="input" type="password" name="contrasena" id="contrasena-user" placeholder="Contraseña (Minimo 6 caracteres)" value="<%=(activeSession!=null)? contrasena:""%>">
           </div>
+          
+          <div>
+          	<label class="label" for="contraseña-user">Confirmar Contraseña:</label>
+            <input class="input" type="password" name="Confirmarcontrasena" id="contrasena-user" placeholder="Confirmar Contraseña" >
+          </div>
+          
+          
           <div>
           	<label class="label" for="contraseña-user">Confirmar Contraseña:</label>
             <input class="input" type="password" name="confirmar-contrasena" id="confirmar-contrasena-user" placeholder="Confirmar contraseña">
