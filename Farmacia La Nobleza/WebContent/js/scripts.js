@@ -109,28 +109,54 @@ const telefonoUser = document.getElementById("telefono-user");
 const correoUser = document.getElementById("correo-user");
 const fechaUser = document.getElementById("fecha-user");
 const contrasenaUser = document.getElementById("contrasena-user");
+const confirmaContrasenaUser = document.getElementById(
+  "confirmar-contrasena-user"
+);
 
 const formRegisterUserIsValid = {
   nombres: false,
   apellidos: false,
   dni: false,
   celular: false,
-  telefono: false,
   correo: false,
   contrasena: false,
+  confirmar: false,
 };
 
 if (
   formRegisterUser &&
   nombresUser &&
   apellidosUser &&
-  dniUser &&
   celularUser &&
   telefonoUser &&
   correoUser &&
   fechaUser &&
-  contrasenaUser
+  contrasenaUser &&
+  confirmaContrasenaUser
 ) {
+  const validateFormRegisterUser = () => {
+    const formValues = Object.values(formRegisterUserIsValid);
+    const valid = formValues.findIndex((value) => value == false);
+    if (valid == -1) formRegisterUser.submit();
+    else ui.notificationError("Error al registrarse o actualizar");
+  };
+
+  const recorrerInputsUser = () => {
+    if (
+      nombresUser.value.length > 0 &&
+      apellidosUser.value.length > 0 &&
+      celularUser.value.length > 0 &&
+      correoUser.value.length > 0 &&
+      contrasenaUser.value.length > 0
+    ) {
+      formRegisterUserIsValid.nombres = true;
+      formRegisterUserIsValid.apellidos = true;
+      formRegisterUserIsValid.celular = true;
+      formRegisterUserIsValid.correo = true;
+      formRegisterUserIsValid.contrasena = true;
+    }
+  };
+
   formRegisterUser.addEventListener("submit", (e) => {
     e.preventDefault();
     validateFormRegisterUser();
@@ -153,16 +179,6 @@ if (
     } else {
       formRegisterUserIsValid.apellidos = false;
       apellidosUser.after(ui.messageError("Ingresar apellidos"));
-    }
-  });
-
-  dniUser.addEventListener("input", (e) => {
-    if (e.target.value.length > 0) {
-      formRegisterUserIsValid.dni = true;
-      ui.removerElementoSiguiente(dniUser);
-    } else {
-      formRegisterUserIsValid.dni = false;
-      dniUser.after(ui.messageError("Ingresar DNI"));
     }
   });
 
@@ -209,10 +225,29 @@ if (
     }
   });
 
-  const validateFormRegisterUser = () => {
-    const formValues = Object.values(formRegisterUserIsValid);
-    const valid = formValues.findIndex((value) => value == false);
-    if (valid == -1) formRegisterUser.submit();
-    else ui.notificationError("Error al registrarse");
-  };
+  confirmaContrasenaUser.addEventListener("change", (e) => {
+    if (!(e.target.value == contrasenaUser.value)) {
+      ui.removerElementoSiguiente(confirmaContrasenaUser);
+      confirmaContrasenaUser.after(
+        ui.messageError("No coincide la contraseña")
+      );
+    } else {
+      formRegisterUserIsValid.confirmar = true;
+      ui.removerElementoSiguiente(confirmaContrasenaUser);
+    }
+  });
+  recorrerInputsUser();
+}
+if (dniUser) {
+  dniUser.addEventListener("input", (e) => {
+    if (e.target.value.length > 0) {
+      formRegisterUserIsValid.dni = true;
+      ui.removerElementoSiguiente(dniUser);
+    } else {
+      formRegisterUserIsValid.dni = false;
+      dniUser.after(ui.messageError("Ingresar DNI"));
+    }
+  });
+} else {
+  formRegisterUserIsValid.dni = true;
 }
