@@ -3,6 +3,6 @@ import entities.*;
 
 public interface CarritoModelInterface {
 	
-	public boolean Compra(Compra compra) ;
+	public boolean Compra(Compra compra);
 
 }

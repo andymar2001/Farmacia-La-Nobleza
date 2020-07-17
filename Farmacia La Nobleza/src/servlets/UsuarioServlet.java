@@ -75,7 +75,7 @@ public class UsuarioServlet extends HttpServlet {
     	   if(b==1) {
     		   response.sendRedirect("login.jsp");
     	   }else {
-    		   System.out.println("No registroooooooooo");
+    		   
     		   request.setAttribute("message", "No registro bien");
     		   request.getRequestDispatcher("/registro-usuario.jsp").forward(request, response);
     	   }
@@ -111,7 +111,7 @@ public class UsuarioServlet extends HttpServlet {
  	   
  	   
  	   if(b==1) {
- 		   response.sendRedirect("login.jsp");
+ 		   response.sendRedirect("index.jsp");
  	   }else {
  		   System.out.println("No registroooooooooo");
  		   request.setAttribute("message", "No registro bien");
