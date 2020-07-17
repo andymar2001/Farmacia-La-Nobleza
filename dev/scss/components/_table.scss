@@ -1,0 +1,26 @@
+.table {
+  width: 100%;
+  border-spacing: 0;
+  box-shadow: 0px 0px 15px 0px #ccc;
+  display: grid;
+  font-size: 1.5rem;
+  &__thead {
+    background-color: $primary-color;
+    color: #fff;
+    display: grid;
+    & th{
+      font-weight: 700;
+    }
+  }
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    &:nth-child(even) {
+      background-color: rgb(236, 236, 236);
+    }
+  }
+  &__item {
+    padding: 2rem 0;
+    font-weight: 400;
+  }
+}
