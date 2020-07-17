@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
     			
     			response.sendRedirect("index.jsp");
     			}else {
-    				request.setAttribute("msj", "Usuario INACTIVO, comuníquese con nosotros para solucionar este problema");
+    				request.setAttribute("msj", "Usuario INACTIVO, comuníquese con nosotros <br> para solucionar este problema");
         			request.getRequestDispatcher("login.jsp").forward(request, response);
     			}
     			

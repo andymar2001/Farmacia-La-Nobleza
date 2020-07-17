@@ -32,12 +32,20 @@
           	<label class="label" for="apellidos-user">Apellidos:</label>
             <input class="input" type="text" name="apellidos" id="apellidos-user" placeholder="Apellidos" value="<%=(activeSession!=null)? apellidos:""%>">
           </div>
-          
-          <div class="<%=(activeSession!=null)? "ocultar":"form-group" %>">
+          <% 
+			if(activeSession==null){
+          %>
+           <div class="form-group">
           	<label class="label" for="dni-user">Dni:</label>
-            <input class="input" type="text" name="dni" id="dni-user" placeholder="Dni" value="<%=(activeSession!=null)? dni:""%>" >
-          </div>
-          
+            <input class="input" type="text" name="dni" id="dni-user" placeholder="Dni">
+           </div>
+          <%
+			}else{
+          %>
+          	<input type="hidden" name="dni" value="<%=dni%>" >
+          <%
+			}
+          %>
           <div>
           	<label class="label" for="celular-user">Celular:</label>
             <input class="input" type="text" name="celular" id="celular-user" placeholder="Celular" maxlength="9" value="<%=(activeSession!=null)? celular:""%>">
@@ -69,6 +77,10 @@
           </div>
           
           
+          <div>
+          	<label class="label" for="contraseña-user">Confirmar Contraseña:</label>
+            <input class="input" type="password" name="confirmar-contrasena" id="confirmar-contrasena-user" placeholder="Confirmar contraseña">
+          </div>
           <div>
             <div>
               <input class="button-submit" type="submit" name="register" value="<%=(activeSession!=null)? "Actualizar Perfil":"Registrarme"%>">

@@ -11,5 +11,7 @@ public interface UsuarioModelInterface {
 	public int RegistroUsuario(Usuario usuario);
 	
 	public int UpdateUsuario(Usuario usuario);
+	
+	public Boolean buscaXdni(String dni);
 
 }

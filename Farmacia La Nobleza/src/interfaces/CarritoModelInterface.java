@@ -1,8 +1,11 @@
 package interfaces;
-import entities.*;
+
+import entities.Compra;
 
 public interface CarritoModelInterface {
 	
-	public boolean Compra(Compra compra);
+	public Compra compraxusuario(String dni);
+	
+	
 
 }

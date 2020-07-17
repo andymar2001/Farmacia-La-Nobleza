@@ -75,7 +75,7 @@ CiudadDestinatario 	varchar(15) NULL,
 RegionDestinatario 	varchar(15) NULL,
 CodPostalDestinatario varchar(10) NULL,
 Dni_Usuario			char(8) not null,
-Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'A' OR Estado like 'I'),
+Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'C' OR Estado like 'E' or Estado like 'P' or Estado like 'F' or Estado like 'A'),
 primary key (Id_Pedido),
 foreign key (Dni_Usuario) references Usuario(Dni_Usuario)
 );

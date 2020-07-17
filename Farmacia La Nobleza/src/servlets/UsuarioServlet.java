@@ -12,12 +12,15 @@ import javax.servlet.http.HttpServletResponse;
 import dao.DAOFactory;
 import entities.Usuario;
 import interfaces.UsuarioModelInterface;
+import utils.Constantes;
+import utils.session;
 
 
 @WebServlet("/UsuarioServlet")
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAOFactory daoFactory=DAOFactory.getDaoFactory(DAOFactory.MYSQL);
+	session saveSession=new session();
 	 
 	 UsuarioModelInterface dao=daoFactory.getUsuarioModel();
     
@@ -69,6 +72,10 @@ public class UsuarioServlet extends HttpServlet {
     	   usuario.setCorreo_usuario(correo);
     	   usuario.setPassword(contraseña);
     	   System.out.println(usuario.getPassword());
+    	   if(dao.buscaXdni(dni)) {
+    		   request.setAttribute("message", "Existe otro usuario con el mismo DNI");
+    		   request.getRequestDispatcher("/registro-usuario.jsp").forward(request, response);
+    	   }
     	   int b=dao.RegistroUsuario(usuario);
     	   
     	   
@@ -106,12 +113,20 @@ public class UsuarioServlet extends HttpServlet {
  	   usuario.setTelefono_usuario(telefono);
  	   usuario.setCorreo_usuario(correo);
  	   usuario.setPassword(contraseña);
- 	   System.out.println(usuario.getPassword());
  	   int b=dao.UpdateUsuario(usuario);
  	   
  	   
  	   if(b==1) {
- 		   response.sendRedirect("index.jsp");
+ 		   
+ 		   	saveSession.saveString(request, Constantes.DNI_US, usuario.getDni_usuario());
+			saveSession.saveString(request, Constantes.NOMBRE_US, usuario.getNombre_usuario());
+			saveSession.saveString(request, Constantes.APELLIDO_US, usuario.getApellido_usuario());
+			saveSession.saveString(request, Constantes.FECHA_US, usuario.getFec_nac_usuario());
+			saveSession.saveString(request, Constantes.CORREO_US, usuario.getCorreo_usuario());
+			saveSession.saveString(request, Constantes.CONTRA_US, usuario.getPassword());
+			saveSession.saveString(request, Constantes.CELULAR_US, usuario.getCelular_usuario());
+			saveSession.saveString(request, Constantes.TELEFONO_US, usuario.getTelefono_usuario());
+ 		   	response.sendRedirect("index.jsp");
  	   }else {
  		   System.out.println("No registroooooooooo");
  		   request.setAttribute("message", "No registro bien");

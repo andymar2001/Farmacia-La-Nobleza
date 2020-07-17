@@ -134,4 +134,40 @@ public class UsuarioModel implements UsuarioModelInterface {
 		}
 		return salida;
 	}
+
+
+
+	@Override
+	public Boolean buscaXdni(String dni) {
+		
+		Boolean salida = false;
+		
+		try {
+			
+			cn = MysqlDBConexion.getConexion();
+			String sql="select * from usuario where ni_Usuario=?";
+			pstm=cn.prepareStatement(sql);
+			pstm.setString(1, dni);
+			if(pstm.executeUpdate()==1) {
+				salida=true;
+			}
+			
+			
+		} catch (Exception e) {
+			
+			System.out.println("Problema en metodo buscar x dni: "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		return salida;
+	}
 }

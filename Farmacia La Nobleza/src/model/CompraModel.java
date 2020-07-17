@@ -5,9 +5,9 @@ import entities.*;
 public class CompraModel implements CarritoModelInterface{
 
 	@Override
-	public boolean Compra(Compra compra) {
+	public Compra compraxusuario(String dni) {
 		// TODO Auto-generated method stub
-		return false;
+		return null;
 	}
 
 }
