@@ -48,7 +48,7 @@ public class MysqlDBConexion {
 		try {
 			//obtener el drivers
 			Class.forName("com.mysql.jdbc.Driver");
-			String connectionURL="jdbc:mysql://localhost:3306/covidfarma?user=root&password=&useUnicode=true&characterEncoding";
+			String connectionURL="jdbc:mysql://localhost:3306/covidfarma?user=root&password=&useUnicode=true&characterEncoding=UTF-8";
 			//String connecctionURL="jdbc:mysql://localhost:3307/CovidFarma?user=root&password=mysql&useUnicode=true&characterEncoding=UTF-8";
 			cn=DriverManager.getConnection(connectionURL);
 			

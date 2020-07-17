@@ -64,18 +64,18 @@ INSERT INTO Usuario VALUES('12345678','Admin','Admin','2020-01-01','123456789','
 
 create table Pedido(
 Id_Pedido			int not null,
-FechaPedido 		datetime NOT NULL,
-FechaEntrega 		datetime not NULL,
-FechaEnvio 			datetime not NULL,
-Envio 				char(1) NULL,
+Dni_Usuario			char(8) not null,
+FechaPedido 		date NOT NULL,
+FechaEntrega 		date NULL,
+FechaEnvio 			date NULL,
+-- D= DELIVERY / T = EN TIENDA --
+Envio 				char(1) NOT NULL CHECK(Envio like 'D' or Envio like 'T'),
 Cargo 				decimal(10, 0) NULL,
-Destinatario 		varchar(40) NULL,
 DireccionDestinatario varchar(60) NULL,
 CiudadDestinatario 	varchar(15) NULL,
 RegionDestinatario 	varchar(15) NULL,
-CodPostalDestinatario varchar(10) NULL,
-Dni_Usuario			char(8) not null,
-Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'C' OR Estado like 'E' or Estado like 'P' or Estado like 'F' or Estado like 'A'),
+-- Estado C= EN CARRITO / E = ESPERA DE PAGO / P = PAGADO / F = FINALIZADO / R = EN REPARTO --
+Estado CHAR(1) NOT NULL DEFAULT 'C' CHECK(Estado like 'C' OR Estado like 'E' or Estado like 'P' or Estado like 'F' or Estado like 'A' OR Estado like 'R'),
 primary key (Id_Pedido),
 foreign key (Dni_Usuario) references Usuario(Dni_Usuario)
 );
@@ -92,5 +92,6 @@ PRIMARY KEY(Id_Producto	,Id_Pedido),
 FOREIGN KEY (Id_Producto) REFERENCES tb_Producto(Id_Producto) ON DELETE RESTRICT ON UPDATE CASCADE,
 FOREIGN KEY (Id_Pedido) REFERENCES Pedido(Id_Pedido) ON DELETE RESTRICT ON UPDATE CASCADE
 );
+
 
 

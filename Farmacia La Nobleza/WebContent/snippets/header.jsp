@@ -58,7 +58,7 @@
             <li class="main-menu__item"><a href="index.jsp">Inicio</a></li>
             <li class="main-menu__item"><a href="conocenos.jsp">Conócenos</a></li>
             <li class="main-menu__item"><a href="servicios.jsp">Servicios</a></li>
-            <li class="main-menu__item"><a href="productos.jsp">Productos</a></li>
+            <li class="main-menu__item"><a href="ProductoServlet?cat=0">Productos</a></li>
             <li class="main-menu__item"><a href="contacto.jsp">Contáctanos</a></li>
           </ul>
           <form class="header__nav__form" action="">
@@ -72,23 +72,23 @@
       <div class="header__bottom__container">
         <div class="header__category">
           <i class="fas fa-home"></i>
-          <p>HOGAR</p>
+          <p><a href="ProductoServlet?cat=1">HOGAR</a></p>
         </div>
         <div class="header__category">
           <i class="fas fa-pills"></i>
-          <p>VITAMINAS Y SUPLEMENTOS</p>
+          <p><a href="ProductoServlet?cat=2">VITAMINAS Y SUPLEMENTOS</a></p>
         </div>
         <div class="header__category">
           <i class="fas fa-baby-carriage"></i>
-          <p>INFANTIL Y MATERNIDAD</p>
+          <p><a href="ProductoServlet?cat=3">INFANTIL Y MATERNIDAD</a></p>
         </div>
         <div class="header__category">
           <i class="fas fa-briefcase-medical"></i>
-          <p>MEDICINA Y ORTOPEDIA</p>
+          <p><a href="ProductoServlet?cat=4">MEDICINA Y ORTOPEDIA</a></p>
         </div>
         <div class="header__category">
           <i class="fas fa-pump-medical"></i>
-          <p>CUIDADO PERSONAL</p>
+          <p><a href="ProductoServlet?cat=4">CUIDADO PERSONAL</a></p>
         </div>
         <div class="header__category">
           <i class="fas fa-head-side-mask"></i>

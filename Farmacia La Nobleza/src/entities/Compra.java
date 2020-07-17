@@ -8,13 +8,12 @@ public class Compra {
 	public String FechaEnvio;
 	public String envio;
 	public double cargo;
-	public String Destinatario;
 	public String DireccionDestinatario;
 	public String CiudadDestinatario;
 	public String RegionDestinatario;
-	public String CodPostalDestinatario;
 	public String Dni_Usuario;
 	public String Estado;
+	
 	public int getId_Pedido() {
 		return Id_Pedido;
 	}
@@ -51,12 +50,7 @@ public class Compra {
 	public void setCargo(double cargo) {
 		this.cargo = cargo;
 	}
-	public String getDestinatario() {
-		return Destinatario;
-	}
-	public void setDestinatario(String destinatario) {
-		Destinatario = destinatario;
-	}
+	
 	public String getDireccionDestinatario() {
 		return DireccionDestinatario;
 	}
@@ -75,12 +69,7 @@ public class Compra {
 	public void setRegionDestinatario(String regionDestinatario) {
 		RegionDestinatario = regionDestinatario;
 	}
-	public String getCodPostalDestinatario() {
-		return CodPostalDestinatario;
-	}
-	public void setCodPostalDestinatario(String codPostalDestinatario) {
-		CodPostalDestinatario = codPostalDestinatario;
-	}
+	
 	public String getDni_Usuario() {
 		return Dni_Usuario;
 	}

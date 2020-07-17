@@ -1,9 +1,12 @@
+<%@page import="entities.Producto"%>
+<%@page import="java.util.List"%>
 <%@ include file="snippets/head.jsp" %>
 <title>Medicinas - Farmacia La Nobleza</title>
 
 </head>
 
 <body>
+
 <%@ include file="snippets/header.jsp" %>
   <main class="main">
     <section class="productos section">
@@ -46,39 +49,21 @@
               <p class="productos__frase title">#AUnClicDeTuSalud</p>
             </div>
             <div class="productos__grid">
+            <% List<Producto> listaProductos = (List<Producto>) request.getAttribute("productos");
+            	if(listaProductos!=null){
+            		for(int i = 0;i<listaProductos.size();i++){%>
               <article class="card">
                 <figure class="card__image">
                   <img src="assets/img/productos.jpg" alt="producto">
                 </figure>
                 <div class="card__data">
-                  <h3 class="card__title">ACEITE DE COCO EXTRA VIRGEN X 250 ML</h3>
-                  <p class="card__price">27.00</p>
+                  <h3 class="card__title"><%=listaProductos.get(i).getNom_producto() %></h3>
+                  <p class="card__price"><%=listaProductos.get(i).getPrecio_pro() %></p>
                   <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                  <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
+                  <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
                 </div>
               </article>
-              <article class="card">
-                <figure class="card__image">
-                  <img src="assets/img/productos.jpg" alt="producto">
-                </figure>
-                <div class="card__data">
-                  <h3 class="card__title">ACEITE DE COCO EXTRA VIRGEN X 250 ML</h3>
-                  <p class="card__price">27.00</p>
-                  <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                  <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
-                </div>
-              </article>
-              <article class="card">
-                <figure class="card__image">
-                  <img src="assets/img/productos.jpg" alt="producto">
-                </figure>
-                <div class="card__data">
-                  <h3 class="card__title">ACEITE DE COCO EXTRA VIRGEN X 250 ML</h3>
-                  <p class="card__price">27.00</p>
-                  <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                  <p class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></p>
-                </div>
-              </article>
+              <%}}%>
             </div>
           </div>
         </div>

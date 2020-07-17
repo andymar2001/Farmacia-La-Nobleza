@@ -75,12 +75,6 @@
           	<label class="label" for="contraseña-user">Confirmar Contraseña:</label>
             <input class="input" type="password" name="Confirmarcontrasena" id="contrasena-user" placeholder="Confirmar Contraseña" >
           </div>
-          
-          
-          <div>
-          	<label class="label" for="contraseña-user">Confirmar Contraseña:</label>
-            <input class="input" type="password" name="confirmar-contrasena" id="confirmar-contrasena-user" placeholder="Confirmar contraseña">
-          </div>
           <div>
             <div>
               <input class="button-submit" type="submit" name="register" value="<%=(activeSession!=null)? "Actualizar Perfil":"Registrarme"%>">
