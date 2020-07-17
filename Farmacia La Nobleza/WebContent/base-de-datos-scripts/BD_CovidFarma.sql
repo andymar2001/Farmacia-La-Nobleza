@@ -10,6 +10,12 @@ Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK(Estado like 'A' OR Estado like 'I'),
 primary key (Id_Categoria)
 );
 
+insert into Categoria values(1,'HOGAR','PRODUCTOS PARA EL HOGAR','A');
+insert into Categoria values(2,'VITAMINAS Y SUPLEMENTOS','PRODUCTOS VITAMINICOS','A');
+insert into Categoria values(3,'INFANTIL Y MATERNIDAD','PRODUCTOS PARA NIÑOS Y RECIEN NACIDOS','A');
+insert into Categoria values(4,'MEDICINA Y ORTOPEDIA','PASTILLAS Y DROGAS','A');
+insert into Categoria values(5,'CUIDADO PERSONAL','JABONES,PASTAS DENTALES,HILOS DETANLES','A');
+
 create table Proveedor(
 Id_Proveedor		int not null,
 Nombre_Cia			varchar(40) not null,
@@ -21,9 +27,11 @@ Estado CHAR(1) NOT NULL DEFAULT 'A' CHECK( Estado like 'A' OR Estado like 'I'),
 primary key (Id_Proveedor)
 );
 
+INSERT INTO PROVEEDOR values(1,'BAYER','LUIS RETTO','ADMINISTRADOR','AV. ESA MISMA #666','5555555RRIENTE',default);
+
 create table tb_Producto(
 Id_Producto			int auto_increment not null,
-Nom_producto		varchar(20) not null,
+Nom_producto		varchar(100) not null,
 Id_Proveedor 		int,
 Id_Categoria		int,
 U_Medida			varchar(100) not null,
@@ -34,6 +42,17 @@ primary key (Id_Producto),
 foreign key (Id_Categoria) references Categoria(Id_Categoria),
 foreign key (Id_Proveedor) references Proveedor(Id_Proveedor)
 );
+
+INSERT INTO TB_PRODUCTO valueS(NULL,'BICARBONATO DE SODIO',1,1,'SOBRE 100MG',3.5,100,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'TOMATODO DE BAYER',1,1,'UNIDAD',43.5,10,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'KIDKAL',1,2,'BOTELLA 1L',105.5,5,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'VITAMINA A C Y D',1,2,'BOTELLA 1.5L',15.5,70,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'BIBERON DE PLASTICO',1,3,'UNIDAD',25.5,60,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'PAÑALES PAMPERS',1,3,'PACK DE 3 U.',6.5,4,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'ASPIRINA',1,4,'UNIDAD',105.5,60,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'IVERMECTINA',1,4,'BOTELLA X 10ML',500.5,60,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'KERATINA',1,5,'POMO X 100U',50.5,60,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'DESODORONTE - ZOBACODELOCA',1,5,'SPRAY DE 500ML',15.5,60,'A');
 
 create table tipo_us(
 id_tipo_usuario int not null primary key auto_increment,
@@ -74,7 +93,7 @@ Cargo 				decimal(10, 0) NULL,
 DireccionDestinatario varchar(60) NULL,
 CiudadDestinatario 	varchar(15) NULL,
 RegionDestinatario 	varchar(15) NULL,
--- Estado C= EN CARRITO / E = ESPERA DE PAGO / P = PAGADO / F = FINALIZADO / R = EN REPARTO --
+-- Estado C= EN CARRITO / E = ESPERA DE PAGO / P = PAGADO / F = FINALIZADO / R = EN REPARTO / A = ANULADO --
 Estado CHAR(1) NOT NULL DEFAULT 'C' CHECK(Estado like 'C' OR Estado like 'E' or Estado like 'P' or Estado like 'F' or Estado like 'A' OR Estado like 'R'),
 primary key (Id_Pedido),
 foreign key (Dni_Usuario) references Usuario(Dni_Usuario)
@@ -93,5 +112,13 @@ FOREIGN KEY (Id_Producto) REFERENCES tb_Producto(Id_Producto) ON DELETE RESTRICT
 FOREIGN KEY (Id_Pedido) REFERENCES Pedido(Id_Pedido) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
-
-
+create table Boleta(
+id_boleta			int primary key auto_increment,
+Dni_Usuario			char(8) not null,
+Id_Pedido			int not null,
+Monto_total			decimal(10,0) not null,
+-- A = ANULADA / V = VIGENTE --
+Estado				char(1) check (Estado like 'V' or Estado like 'A'),
+foreign key (Dni_Usuario) references Usuario(Dni_Usuario),
+foreign key (Id_Pedido) references Pedido(Id_Pedido) 
+);
