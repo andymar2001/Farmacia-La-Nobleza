@@ -47,6 +47,7 @@ public class LoginServlet extends HttpServlet {
     		
     		if(usuario!=null) {
     			
+    			
     			if(usuario.getEstado_usuario().equals("A")) {
     			
     			saveSession.saveBoolean(request, Constantes.LOGIN, true);

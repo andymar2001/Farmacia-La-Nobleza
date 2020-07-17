@@ -120,6 +120,7 @@ const formRegisterUserIsValid = {
   contrasena: false,
 };
 
+
 if (
   formRegisterUser &&
   nombresUser &&
