@@ -6,7 +6,6 @@
 </head>
 
 <body>
-
 <%@ include file="snippets/header.jsp" %>
   <main class="main">
     <section class="productos section">
@@ -14,10 +13,7 @@
         <div class="productos__2fr">
           <div>
             <div class="productos__top">
-              <div class="productos__icon">
-                <i class="fas fa-home"></i>
-              </div>
-              <h2 class="productos__title title">HOGAR</h2>
+              <% String categoria=(String) request.getAttribute("categoria"); %><%=categoria %>
             </div>
             <div class="productos__filtro">
               <div class="productos__filtro__item">

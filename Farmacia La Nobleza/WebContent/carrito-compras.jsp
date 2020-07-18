@@ -30,7 +30,7 @@
                     <img src="assets/img/producto.jpg" alt="foto">
                   </figure>
                   <div class="carrito-compras__table__data">
-                    <p class="carrito-compras__table__data__title">ALCOHOL 96ï¿½ X 1000 ML</p>
+                    <p class="carrito-compras__table__data__title">ALCOHOL 96° X 1000 ML</p>
                     <p>SKU: 08646</p>
                     <p>Maximo de compra: 1 unidades.</p>
                   </div>
@@ -54,7 +54,7 @@
                     <img src="assets/img/producto.jpg" alt="foto">
                   </figure>
                   <div class="carrito-compras__table__data">
-                    <p class="carrito-compras__table__data__title">ALCOHOL 96ï¿½ X 1000 ML</p>
+                    <p class="carrito-compras__table__data__title">ALCOHOL 96° X 1000 ML</p>
                     <p>SKU: 08646</p>
                     <p>Maximo de compra: 1 unidades.</p>
                   </div>

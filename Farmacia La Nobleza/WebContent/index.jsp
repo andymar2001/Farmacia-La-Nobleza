@@ -50,61 +50,7 @@
             <i class="fas fa-chevron-left"></i>
           </div>
           <div class="slider-card__slider">
-            <article class="card">
-              <figure class="card__image">
-                <img src="assets/img/producto.jpg" alt="producto">
-              </figure>
-              <div class="card__data">
-                <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
-                <p class="card__price">2.30</p>
-                <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
-              </div>
-            </article>
-            <article class="card">
-              <figure class="card__image">
-                <img src="assets/img/producto.jpg" alt="producto">
-              </figure>
-              <div class="card__data">
-                <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
-                <p class="card__price">2.30</p>
-                <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
-              </div>
-            </article>
-            <article class="card">
-              <figure class="card__image">
-                <img src="assets/img/producto.jpg" alt="producto">
-              </figure>
-              <div class="card__data">
-                <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
-                <p class="card__price">2.30</p>
-                <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
-              </div>
-            </article>
-            <article class="card">
-              <figure class="card__image">
-                <img src="assets/img/producto.jpg" alt="producto">
-              </figure>
-              <div class="card__data">
-                <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
-                <p class="card__price">2.30</p>
-                <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
-              </div>
-            </article>
-            <article class="card">
-              <figure class="card__image">
-                <img src="assets/img/producto.jpg" alt="producto">
-              </figure>
-              <div class="card__data">
-                <h3 class="card__title">Panadol Antigripal x 1 Sobre (2 tabletas)</h3>
-                <p class="card__price">2.30</p>
-                <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
-              </div>
-            </article>
+            <ts:tagBaratos top="6" />
           </div>
           <div class="slider-card__next">
             <i class="fas fa-chevron-right"></i>

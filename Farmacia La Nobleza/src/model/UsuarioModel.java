@@ -108,7 +108,7 @@ public class UsuarioModel implements UsuarioModelInterface {
 			pstm.setString(2, usuario.getApellido_usuario());
 			pstm.setString(3, usuario.getFec_nac_usuario());
 			pstm.setString(4, usuario.getCelular_usuario());
-			if(usuario.getTelefono_usuario()==null||usuario.getTelefono_usuario().equals(" ")) {
+			if(usuario.getTelefono_usuario()==null||usuario.getTelefono_usuario().equals("-")) {
 			pstm.setString(5, null);	
 			}else {pstm.setString(5, usuario.getTelefono_usuario());}
 			pstm.setString(6, usuario.getCorreo_usuario());
