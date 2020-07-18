@@ -42,7 +42,7 @@
                 <option value="item 3">Ordenar de letra A hasta la Z</option>
                 <option value="item 3">Ordenar de letra Z hasta la A</option>
               </select>
-              <p class="productos__frase title">#AUnClicDeTuSalud</p>
+              <p class="productos__frase title">#QuedateEnCasa</p>
             </div>
             <div class="productos__grid">
             <% List<Producto> listaProductos = (List<Producto>) request.getAttribute("productos");

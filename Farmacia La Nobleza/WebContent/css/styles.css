@@ -754,6 +754,7 @@ a {
 .card__title {
   text-align: center;
   margin: 1.2rem 0;
+  font-size: 1.6rem;
 }
 
 .card__price {
