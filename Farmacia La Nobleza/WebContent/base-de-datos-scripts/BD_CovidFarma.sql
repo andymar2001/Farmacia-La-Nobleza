@@ -1,6 +1,6 @@
-DROP DATABASE if exists CovidFarma;
-CREATE DATABASE CovidFarma;
-use CovidFarma;
+DROP DATABASE if exists farmanobleza;
+CREATE DATABASE farmanobleza;
+use farmanobleza;
 
 create table Categoria(
 Id_Categoria		int not null,
@@ -12,7 +12,7 @@ primary key (Id_Categoria)
 
 insert into Categoria values(1,'HOGAR','PRODUCTOS PARA EL HOGAR','A');
 insert into Categoria values(2,'VITAMINAS Y SUPLEMENTOS','PRODUCTOS VITAMINICOS','A');
-insert into Categoria values(3,'INFANTIL Y MATERNIDAD','PRODUCTOS PARA NI�OS Y RECIEN NACIDOS','A');
+insert into Categoria values(3,'INFANTIL Y MATERNIDAD','PRODUCTOS PARA NIÑOS Y RECIEN NACIDOS','A');
 insert into Categoria values(4,'MEDICINA Y ORTOPEDIA','PASTILLAS Y DROGAS','A');
 insert into Categoria values(5,'CUIDADO PERSONAL','JABONES,PASTAS DENTALES,HILOS DETANLES','A');
 
@@ -48,7 +48,7 @@ INSERT INTO TB_PRODUCTO valueS(NULL,'TOMATODO DE BAYER',1,1,'UNIDAD',43.5,10,'A'
 INSERT INTO TB_PRODUCTO valueS(NULL,'KIDKAL',1,2,'BOTELLA 1L',105.5,5,'A');
 INSERT INTO TB_PRODUCTO valueS(NULL,'VITAMINA A C Y D',1,2,'BOTELLA 1.5L',15.5,70,'A');
 INSERT INTO TB_PRODUCTO valueS(NULL,'BIBERON DE PLASTICO',1,3,'UNIDAD',25.5,60,'A');
-INSERT INTO TB_PRODUCTO valueS(NULL,'PA�ALES PAMPERS',1,3,'PACK DE 3 U.',6.5,4,'A');
+INSERT INTO TB_PRODUCTO valueS(NULL,'PAÑALES PAMPERS',1,3,'PACK DE 3 U.',6.5,4,'A');
 INSERT INTO TB_PRODUCTO valueS(NULL,'ASPIRINA',1,4,'UNIDAD',105.5,60,'A');
 INSERT INTO TB_PRODUCTO valueS(NULL,'IVERMECTINA',1,4,'BOTELLA X 10ML',500.5,60,'A');
 INSERT INTO TB_PRODUCTO valueS(NULL,'KERATINA',1,5,'POMO X 100U',50.5,60,'A');
@@ -61,7 +61,7 @@ detalle_tipo varchar(100)
 );
 
 /*SOLO ADMINISTRADOR PUEDE CRUD*/
-INSERT INTO tipo_us VALUES(null,'administrador','Encargado de la administración de la pagina');
+INSERT INTO tipo_us VALUES(null,'administrador','Encargado de la administraciÃ³n de la pagina');
 INSERT INTO tipo_us VALUES(null,'repartidor','Encargado de repartir');
 INSERT INTO tipo_us VALUES(null,'cliente','Encargado de estar de miron');
 

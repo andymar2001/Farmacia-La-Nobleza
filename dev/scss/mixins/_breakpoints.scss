@@ -1,4 +1,5 @@
 $b-1600:1600px;
+$b-1496:1496px;
 $b-1280:1280px;
 $b-1120:1120px;
 $b-906:906px;
@@ -9,9 +10,13 @@ $b-640:640px;
 $b-580:580px;
 $b-420:420px;
 $b-360:360px;
-
 @mixin b-1600 {
     @media screen and(max-width:$b-1600) {
+        @content;
+    }
+}
+@mixin b-1496 {
+    @media screen and(max-width:$b-1496) {
         @content;
     }
 }

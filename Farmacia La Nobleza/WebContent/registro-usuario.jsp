@@ -73,7 +73,7 @@
           
           <div>
           	<label class="label" for="contraseña-user">Confirmar Contraseña:</label>
-            <input class="input" type="password" name="Confirmarcontrasena" id="contrasena-user" placeholder="Confirmar Contraseña" >
+            <input class="input" type="password" name="Confirmarcontrasena" id="confirmar-contrasena-user" placeholder="Confirmar Contraseña" >
           </div>
           <div>
             <div>
