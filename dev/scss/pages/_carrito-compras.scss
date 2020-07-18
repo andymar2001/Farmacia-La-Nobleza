@@ -1,5 +1,6 @@
 .carrito-compras {
   padding-top: 0rem;
+  padding-bottom: 4rem;
   &__container {
     display: grid;
     gap: 2rem;
@@ -74,6 +75,8 @@
   }
   &__pagar {
     margin-top: 1rem;
+    position: fixed;
+    top: 22rem;
     &__title {
       background-color: $primary-color;
       color: #fff;
@@ -127,5 +130,20 @@
     font-weight: 700;
     font-size: 2rem;
     width: 100%;
+  }
+  &__inputs{
+    margin-top: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
+  &__gridtwo{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+  }
+  &__gridthree{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
   }
 }

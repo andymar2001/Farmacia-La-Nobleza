@@ -35,6 +35,7 @@
           <div class="slider-card__slider">
             <ts:tagBaratos top="5" />          
           </div>
+          
           <div class="slider-card__next">
             <i class="fas fa-chevron-right"></i>
           </div>

@@ -599,7 +599,7 @@ a {
 }
 
 .header__logo {
-  width: 8rem;
+  width: 20rem;
 }
 
 .header__nav {
@@ -1020,6 +1020,7 @@ a {
 
 .carrito-compras {
   padding-top: 0rem;
+  padding-bottom: 4rem;
 }
 
 .carrito-compras__container {
@@ -1105,6 +1106,8 @@ a {
 
 .carrito-compras__pagar {
   margin-top: 1rem;
+  position: fixed;
+  top: 22rem;
 }
 
 .carrito-compras__pagar__title {
@@ -1168,6 +1171,24 @@ a {
   font-weight: 700;
   font-size: 2rem;
   width: 100%;
+}
+
+.carrito-compras__inputs {
+  margin-top: 2rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.carrito-compras__gridtwo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.carrito-compras__gridthree {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 .mantenimiento-productos__combotop {
