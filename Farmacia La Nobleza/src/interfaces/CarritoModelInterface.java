@@ -14,4 +14,8 @@ public interface CarritoModelInterface {
 	public int updatePedido(String estado,int id_pedido);
 	
 	public int GuardaBoleta(String dni,int id_pedido);
+	
+	public int addPedido(String dni);
+	
+	public int addDetalle_Pedido(int id_pedido,int id_producto);
 }

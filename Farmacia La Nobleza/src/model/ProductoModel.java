@@ -69,6 +69,18 @@ public class ProductoModel implements ProductoModelInterface {
 		} catch (Exception e) {
 			System.out.println("error metodo listado de productos en general "+e.getMessage());
 		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
 		
 		return listaProductos;
 	}
@@ -118,7 +130,18 @@ public class ProductoModel implements ProductoModelInterface {
 		} catch (Exception e) {
 			System.out.println("error metodo listado de productos en general");
 		}
-		
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
 		return listaProductos;
 	}
 
@@ -157,9 +180,65 @@ public class ProductoModel implements ProductoModelInterface {
 		} catch (Exception e) {
 			System.out.println("error metodo listado de productos en general "+e.getMessage());
 		}
-		
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
 		return listaProductos;
 		
 	}
+
+	@Override
+	public Producto productoXid(int id) {
+		Producto producto=null;
+		try {
+			
+			cn=MysqlDBConexion.getConexion();
+			String sql="select * from tb_Producto where Id_Producto=? and Estado='A' ";
+			pstm=cn.prepareStatement(sql);
+			pstm.setInt(1, id);
+			rs=pstm.executeQuery();
+			if(rs.next()) {
+				int colum=1;
+				producto=new Producto();
+				producto.setId_producto(rs.getInt(colum));
+				producto.setNom_producto(rs.getString(colum++));
+				producto.setId_proveedor(rs.getInt(colum++));
+				producto.setId_categoria(rs.getInt(colum++));
+				producto.setU_medida(rs.getString(colum++));
+				producto.setPrecio_pro(rs.getDouble(colum++));
+				producto.setStock(rs.getInt(colum++));
+			}
+			else {
+				producto=new Producto();producto.setNom_producto("NO EN EXISTENCIA");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Error en buscar producto por ID: "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		return producto;
+	}
+	
+	
 
 }

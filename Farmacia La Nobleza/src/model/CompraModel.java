@@ -1,10 +1,12 @@
-package model;
+ package model;
 import interfaces.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import database.MysqlDBConexion;
@@ -12,6 +14,9 @@ import entities.*;
 
 public class CompraModel implements CarritoModelInterface{
 	
+	public Date fechaActual=new Date();
+	public SimpleDateFormat formato_AMD=new SimpleDateFormat("yyyy-MM-dd");
+	public String fechactualString=formato_AMD.format(fechaActual);
 	Connection cn = null;
 	PreparedStatement pstm = null;
 	ResultSet rs = null;
@@ -23,7 +28,7 @@ public class CompraModel implements CarritoModelInterface{
 		try {
 			
 			cn=MysqlDBConexion.getConexion();
-			String sql="select * from Pedido where Dni_Usuario=?";
+			String sql="select * from Pedido where Dni_Usuario=? and Estado=C";
 			pstm=cn.prepareStatement(sql);
 			pstm.setString(1, dni);
 			
@@ -167,5 +172,69 @@ public class CompraModel implements CarritoModelInterface{
 		return 0;
 	}
 
+	
+	
+	@Override
+	public int addPedido(String dni) {
+
+		int salida=-1;
+		
+		try {
+			
+			cn=MysqlDBConexion.getConexion();
+			String sql="insert into pedido values(null,?,?,null,null,null,null,null,null,null,default)";
+			pstm=cn.prepareStatement(sql);
+			pstm.setString(1, dni);
+			pstm.setString(2, fechactualString);
+			
+			salida=pstm.executeUpdate();
+			
+		} catch (Exception e) {
+			System.out.println("Error en el metodo de creacion de pedido: "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		return salida;
+	}
+
+	@Override
+	public int addDetalle_Pedido(int id_pedido, int id_producto) {
+		
+		int salida=-1;
+		try {
+			
+			cn=MysqlDBConexion.getConexion();
+			String sql="insert into Detalle_pedido values(?,?,)";
+			
+		} catch (Exception e) {
+			System.out.println("Problema en addDetalle_pedido: "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		return salida;
+	}
+
+	
+	
 
 }
