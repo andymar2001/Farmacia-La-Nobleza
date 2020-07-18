@@ -84,7 +84,7 @@ if (formLogin && usuario && constrasena) {
       formLoginIsValid.contrasena = true;
       ui.removerElementoSiguiente(constrasena);
     } else {
-      formLoginIsValid.usuario = false;
+      formLoginIsValid.contrasena = false;
       constrasena.after(ui.messageError("Debes ingresar tu contraseña"));
     }
   });
