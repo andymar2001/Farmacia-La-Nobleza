@@ -55,7 +55,7 @@
         </figure>
         <nav class="header__nav">
           <ul class="main-menu">
-            <li class="main-menu__item"><a href="index.jsp">Inicio</a></li>
+            <li class="main-menu__item"><a href="ProductoServlet?cat=0">Inicio</a></li>
             <li class="main-menu__item"><a href="conocenos.jsp">Conócenos</a></li>
             <li class="main-menu__item"><a href="servicios.jsp">Servicios</a></li>
             <li class="main-menu__item"><a href="ProductoServlet?cat=0">Productos</a></li>

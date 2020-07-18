@@ -23,10 +23,27 @@ public class ProductoServlet extends HttpServlet {
 	ProductoModelInterface modeloProducto=daoFactory.getProducto();
 
     public ProductoServlet() {super();}
+   
+    protected void service2(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	List<Producto> listaProductos=null;
+    	
+    	int categoria=Integer.parseInt(request.getParameter("cat2"));
+    	
+    	if(categoria!=0) {
+    		
+    		listaProductos=modeloProducto.listadoProductosxCategoria(categoria);
+    		
+    	}else {
+    		listaProductos=modeloProducto.listadoProductos();
+    	}
+    	
+    	request.setAttribute("productos2", listaProductos);
+    	request.getRequestDispatcher("index.jsp").forward(request, response);
+    	
+    }
     
-    
-    
-    
+   
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
@@ -43,7 +60,7 @@ public class ProductoServlet extends HttpServlet {
     	}
     	
     	request.setAttribute("productos", listaProductos);
-    	request.getRequestDispatcher("productos.jsp").forward(request, response);
+    	request.getRequestDispatcher("index.jsp").forward(request, response);
     	
     }
     
