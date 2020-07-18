@@ -51,14 +51,14 @@
             <div class="productos__grid">
             <% List<Producto> listaProductos = (List<Producto>) request.getAttribute("productos");
             	if(listaProductos!=null){
-            		for(int i = 0;i<listaProductos.size();i++){%>
+            		for(Producto productoItem:listaProductos){%>
               <article class="card">
                 <figure class="card__image">
                   <img src="assets/img/productos.jpg" alt="producto">
                 </figure>
                 <div class="card__data">
-                  <h3 class="card__title"><%=listaProductos.get(i).getNom_producto() %></h3>
-                  <p class="card__price"><%=listaProductos.get(i).getPrecio_pro() %></p>
+                  <h3 class="card__title"><%=productoItem.getNom_producto() %></h3>
+                  <p class="card__price"><%=productoItem.getPrecio_pro() %></p>
                   <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
                   <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
                 </div>

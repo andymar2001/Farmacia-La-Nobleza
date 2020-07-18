@@ -6,6 +6,7 @@
 
 <body>
 <%@ include file="snippets/header.jsp" %>
+<% if(activeSession!=null) response.sendRedirect("carrito-compras.jsp"); %>
 <% 	  			//1. Listado de Cookies 
 		  		Cookie[] saveCoookie = request.getCookies();
 		  		String dnilCookie = null;
