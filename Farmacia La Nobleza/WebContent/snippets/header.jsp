@@ -60,6 +60,7 @@
             <li class="main-menu__item"><a href="servicios.jsp">Servicios</a></li>
             <li class="main-menu__item"><a href="ProductoServlet?cat=0">Productos</a></li>
             <li class="main-menu__item"><a href="contacto.jsp">Contáctanos</a></li>
+            <li class="main-menu__item"><a href="ProductoServlet?type=list">Mantenimiento</a></li>
           </ul>
           <form class="header__nav__form" action="">
             <input type="text" name="" id="">

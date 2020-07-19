@@ -1,6 +1,6 @@
 package model;
 
-import java.awt.peer.SystemTrayPeer;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -156,11 +156,22 @@ public class ProductoModel implements ProductoModelInterface {
 			cn = MysqlDBConexion.getConexion();
 			String sql="SELECT * FROM farmanobleza.tb_producto p where p.Estado='A' order by p.Precio_Unidad limit "+cantida_reg;
 			pstm=cn.prepareStatement(sql);
+			
+			
 			rs=pstm.executeQuery();
-			if (rs.last()) {
-				cantidadF=rs.getRow();
-				rs.beforeFirst();
+			
+			while(rs.next()) {
+				cantidadF++;
 			}
+			
+			rs=pstm.executeQuery();
+			
+//			if (rs.last()) {
+//				
+//				cantidadF=rs.getRow();
+//				rs.beforeFirst();
+//			}
+			System.out.println("Aqui esta el error 1 xd " +cantidadF);
 			if(cantidadF!=0) {
 				
 				while(rs.next()) {
@@ -174,12 +185,14 @@ public class ProductoModel implements ProductoModelInterface {
 				
 			}else {
 				
-				Producto producto = new Producto();producto.setNom_producto("NO EXISTEN PRODUCTOS AUN");listaProductos.add(producto);
+			Producto producto = new Producto();producto.setNom_producto("NO EXISTEN PRODUCTOS AUN");listaProductos.add(producto);
 			}
-			
-		} catch (Exception e) {
+			System.out.println("Aqui esta el error 2 xd ");
+		} 
+			catch (Exception e) {
 			System.out.println("error metodo listado de productos en general "+e.getMessage());
 		}
+		
 		finally {
 			try {
 				
@@ -237,6 +250,42 @@ public class ProductoModel implements ProductoModelInterface {
 			}
 		}
 		return producto;
+	}
+
+	@Override
+	public List<Producto> listadoProductosMantenimiento() {
+		List<Producto> listadoP=new ArrayList<Producto>();
+		
+		Connection cn=null;
+		PreparedStatement pstm=null;
+		ResultSet rs=null;
+		
+		try {
+			cn=MysqlDBConexion.getConexion();
+			String sql="select pro.Nom_producto,pv.Nombre_Cia,c.Nombre_Categoria, pro.U_Medida,pro.Precio_Unidad,pro.Unidades_Existencia from farmanobleza.tb_producto pro inner join farmanobleza.categoria c  on pro.Id_Categoria=c.Id_Categoria inner join farmanobleza.proveedor pv on pro.Id_Proveedor=pv.Id_Proveedor ;";
+					
+			
+			pstm=cn.prepareStatement(sql);
+			rs=pstm.executeQuery();
+			
+			while(rs.next()) {
+				Producto p=new Producto();
+				
+				p.setNom_producto(rs.getString("Nom_producto"));
+				p.setNombre_proveedor(rs.getString("pv.Nombre_Cia"));
+				p.setNombre_cat(rs.getString("Nombre_Categoria"));
+				p.setU_medida(rs.getString("U_Medida"));
+				p.setPrecio_pro(rs.getInt("Precio_Unidad"));
+				p.setStock(rs.getInt("Unidades_Existencia"));
+				
+				listadoP.add(p);
+				
+				
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return listadoP;
 	}
 	
 	

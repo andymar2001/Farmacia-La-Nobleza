@@ -30,6 +30,14 @@ public class ProductoServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
+    String type=request.getParameter("type");
+    	
+    	if(type.equals("list"))
+    	{
+    		ListadoProductoMantenimiento(request,response);
+    		
+    	}else {
+    	
     	List<Producto> listaProductos=null;
     	String categoriaString="";
     	
@@ -93,10 +101,19 @@ public class ProductoServlet extends HttpServlet {
     	request.setAttribute("productos", listaProductos);
     	request.setAttribute("categoria", categoriaString);
     	request.getRequestDispatcher("productos.jsp").forward(request, response);
-    	
+    	}
     }
     
-    
+    public void ListadoProductoMantenimiento(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	
+    	List<Producto> listadoProducto=modeloProducto.listadoProductosMantenimiento();
+    	request.setAttribute("datos", listadoProducto);
+    	request.getRequestDispatcher("/mantenimiento-productos.jsp").forward(request, response);
+    	
+    	
+    	
+    }
     
     
 
