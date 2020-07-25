@@ -79,6 +79,8 @@
               <%} %>
             </tbody>
           </table>
+          <br>
+          <h2>Aun te faltan productos? Continua Comprando <a href="ProductoServlet?cat=0">AQUI</a></h2>
           <%if(listaCarrito!=null && listaCarrito.size()!=0) {%>
           <div class="carrito-compras__inputs">
 	          <div class="carrito-compras__gridtwo">

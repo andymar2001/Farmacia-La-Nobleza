@@ -1,3 +1,4 @@
+<%@page import="entities.Detalle_Compra"%>
 <%@page import="entities.Compra"%>
 <%@page import="entities.Boleta"%>
 <%@ include file="snippets/head.jsp" %>
@@ -42,25 +43,25 @@
           </thead>
           <tbody class="table__body">
           <%
-                List<Producto> listadoProducto= (List<Producto>) request.getAttribute("listado");
+                List<Detalle_Compra> listadoProducto= (List<Detalle_Compra>) request.getAttribute("listado");
                 if(listadoProducto!=null){
-                	for(Producto listado:listadoProducto ){
+                	for(Detalle_Compra listado:listadoProducto){
                 		
                 
           %>
           
             <tr class="table__row">
               <th class="table__item">
-                <%=listado.getNom_producto() %>
+                <%=listado.getNombre_producto()%>
               </th>
               <th class="table__item">
-                <%=listado.getNombre_proveedor() %>
+                <%=listado.getPrecio_uni()%>
               </th>
               <th class="table__item">
-                <%=listado.getNombre_cat() %>
+                <%=listado.getCantidad()%>
               </th>
               <th class="table__item">
-                <%=listado.getU_medida() %>
+                <%=listado.total_detalle_producto()%>
               </th>
             </tr>
            <%}}%>

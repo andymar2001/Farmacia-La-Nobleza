@@ -49,11 +49,9 @@ public class CompraServlet extends HttpServlet {
         					modeloCarrito.updateCantidadDetalle(pedido.getId_Pedido(), Integer.parseInt(id), items.getCantidad()+1);
         					System.out.println("llego para upadatear");
         					break;
-        				}else {
-        					modeloCarrito.addDetalle_Pedido(pedido.Id_Pedido,Integer.parseInt(id));
-        					break;
         				}
-        			}        			
+        			}  
+        			modeloCarrito.addDetalle_Pedido(pedido.Id_Pedido,Integer.parseInt(id));
         			itemPedidoCompras=modeloCarrito.productoxpedido(pedido.getId_Pedido());
         			for(Detalle_Compra item:itemPedidoCompras) {
         				totalCarritoDouble+=item.total_detalle_producto();
@@ -73,8 +71,14 @@ public class CompraServlet extends HttpServlet {
         				totalCarritoDouble+=item.total_detalle_producto();
         				totalped++;
         			}
+        			req.setAttribute("nropro",totalped);
+            		req.setAttribute("total", totalCarritoDouble);
+            		req.setAttribute("productosXpedido", itemPedidoCompras);
+            		req.setAttribute("pedido", pedido);
+            		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
         		}
     		}else {
+    			if(pedido!=null) {
     		pedido = modeloCarrito.compraxusuario(dniString);
     		itemPedidoCompras=modeloCarrito.productoxpedido(pedido.getId_Pedido());
     		for(Detalle_Compra item:itemPedidoCompras) {
@@ -85,7 +89,14 @@ public class CompraServlet extends HttpServlet {
     		req.setAttribute("total", totalCarritoDouble);
     		req.setAttribute("productosXpedido", itemPedidoCompras);
     		req.setAttribute("pedido", pedido);
-    		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
+    		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);}
+    			else {
+    				modeloCarrito.addPedido(dniString);
+        			pedido=modeloCarrito.compraxusuario(dniString);
+        			req.setAttribute("productosXpedido", itemPedidoCompras);
+            		req.setAttribute("pedido", pedido);
+            		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
+				}
     		}
     	}else if(type!=null && type.equals("addtag")) {
     		String idtagString=(String) req.getParameter("idtag");
@@ -93,51 +104,6 @@ public class CompraServlet extends HttpServlet {
     		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
     		
     	}
-    	/*    	
-    	
-    	if(type==null) {
-    	if(id!=null) {
-    	if(pedido!=null) {
-    		
-			modeloCarrito.addDetalle_Pedido(pedido.Id_Pedido,Integer.parseInt(id));
-    		itemPedidoCompras=modeloCarrito.productoxpedido(pedido.Id_Pedido);
-    		for(Detalle_Compra item:itemPedidoCompras) {
-				totalCarritoDouble+=item.total_detalle_producto();
-				totalped++;
-			}
-    		req.setAttribute("nropro",totalped);
-    		req.setAttribute("total", totalCarritoDouble);
-    		req.setAttribute("productosXpedido", itemPedidoCompras);
-    		req.setAttribute("pedido", pedido);
-    		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
-    	}
-    	else { 
-			modeloCarrito.addPedido(dniString);
-			Compra pedidonuevo=modeloCarrito.compraxusuario(dniString);
-			modeloCarrito.addDetalle_Pedido(pedidonuevo.Id_Pedido,Integer.parseInt(id));
-			itemPedidoCompras = modeloCarrito.productoxpedido(pedidonuevo.getId_Pedido());
-			for(Detalle_Compra item:itemPedidoCompras) {
-				totalCarritoDouble+=item.total_detalle_producto();
-				totalped++;
-			}
-			req.setAttribute("nropro",totalped);
-    		req.setAttribute("total", totalCarritoDouble);
-			req.setAttribute("productosXpedido", itemPedidoCompras);
-    		req.setAttribute("pedido", pedido);
-    		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
-		}}
-    	else if(id==null) {
-    		itemPedidoCompras=modeloCarrito.productoxpedido(pedido.Id_Pedido);
-    		for(Detalle_Compra item:itemPedidoCompras) {
-				totalCarritoDouble+=item.total_detalle_producto();
-				totalped++;
-			}
-    		req.setAttribute("nropro",totalped);
-    		req.setAttribute("total", totalCarritoDouble);
-    		req.setAttribute("productosXpedido", itemPedidoCompras);
-    		req.setAttribute("pedido", pedido);
-    		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
-    	}}*/
     	
     }
     
