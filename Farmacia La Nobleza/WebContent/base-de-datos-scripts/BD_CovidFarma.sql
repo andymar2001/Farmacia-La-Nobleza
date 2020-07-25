@@ -83,7 +83,7 @@ foreign key(id_tipo_usuario) references tipo_us(id_tipo_usuario)
 INSERT INTO Usuario VALUES('12345678','Admin','Admin','2020-01-01','123456789','987654321','admin@cibertec.edu.pe','admin',default,1);
 
 create table Pedido(
-Id_Pedido			int not null,
+Id_Pedido			int not null auto_increment,
 Dni_Usuario			char(8) not null,
 FechaPedido 		date NOT NULL,
 FechaEntrega 		date NULL,
@@ -123,3 +123,5 @@ Estado				char(1) check (Estado like 'V' or Estado like 'A'),
 foreign key (Dni_Usuario) references Usuario(Dni_Usuario),
 foreign key (Id_Pedido) references Pedido(Id_Pedido) 
 );
+
+

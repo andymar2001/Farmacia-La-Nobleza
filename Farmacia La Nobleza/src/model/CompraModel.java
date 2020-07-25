@@ -28,7 +28,7 @@ public class CompraModel implements CarritoModelInterface{
 		try {
 			
 			cn=MysqlDBConexion.getConexion();
-			String sql="select * from Pedido where Dni_Usuario=? and Estado=C";
+			String sql="select * from Pedido where Dni_Usuario=? and Estado='C'";
 			pstm=cn.prepareStatement(sql);
 			pstm.setString(1, dni);
 			
@@ -76,7 +76,7 @@ public class CompraModel implements CarritoModelInterface{
 	public List<Detalle_Compra> productoxpedido(int id_pedido) {
 		
 		List<Detalle_Compra> compras=new ArrayList<Detalle_Compra>();
-		Detalle_Compra itemCompra = new Detalle_Compra();
+		
 		
 		try {
 			
@@ -87,32 +87,28 @@ public class CompraModel implements CarritoModelInterface{
 					 + "d.Precio_Unidad,"
 					 + "d.Cantidad,"
 					 + "d.Descuento "
-					 + "from covidfarma.detalle_pedido d inner join "
-					 + "covidfarma.tb_producto p "
+					 + "from detalle_pedido d inner join "
+					 + "tb_producto p "
 					 + "on d.Id_Producto = p.Id_Producto "
 					 + "where Id_Pedido=?";
 			pstm=cn.prepareStatement(sql);
 			pstm.setInt(1, id_pedido);
 			rs=pstm.executeQuery();
 			
-			if(rs.next())
+			
 			while(rs.next()) {
-				
+				Detalle_Compra itemCompra = new Detalle_Compra();
 				itemCompra.setId_pedido(id_pedido);
 				itemCompra.setId_producto(rs.getInt("Id_Producto"));
 				itemCompra.setNombre_producto(rs.getString("Nom_producto"));
 				itemCompra.setPrecio_uni(rs.getDouble("Precio_Unidad"));
 				itemCompra.setCantidad(rs.getInt("Cantidad"));
 				itemCompra.setDescuento(rs.getDouble("Descuento"));
-				
+				System.out.println("llego: "+itemCompra.getNombre_producto());
 				compras.add(itemCompra);
 				
 				System.out.println("Producto añadido");
 				
-			}
-			else {
-				itemCompra.setNombre_producto("Sin Productos Añadidos");
-				compras.add(itemCompra);
 			}
 			
 		} catch (Exception e) {
@@ -212,9 +208,16 @@ public class CompraModel implements CarritoModelInterface{
 		
 		int salida=-1;
 		try {
-			
+			ProductoModelInterface modeloInterface = new ProductoModel();
+			Producto producto=modeloInterface.productoXid(id_producto);
 			cn=MysqlDBConexion.getConexion();
-			String sql="insert into Detalle_pedido values(?,?,)";
+			String sql="insert into Detalle_pedido values(?,?,?,?,null)";
+			pstm = cn.prepareStatement(sql);
+			pstm.setInt(1, id_producto);
+			pstm.setInt(2, id_pedido);
+			pstm.setDouble(3, producto.getPrecio_pro());
+			pstm.setInt(4, 1);
+			salida=pstm.executeUpdate();
 			
 		} catch (Exception e) {
 			System.out.println("Problema en addDetalle_pedido: "+e.getMessage());
@@ -231,6 +234,36 @@ public class CompraModel implements CarritoModelInterface{
 				System.out.println(e.getMessage());
 			}
 		}
+		return salida;
+	}
+
+	@Override
+	public int deleteDetalle(int id_pedidp, int id_producto) {
+		
+		int salida =-1;
+		
+		try {
+			
+			cn=MysqlDBConexion.getConexion();
+			String sql="delete from farmanobleza.detalle_pedido where detalle_pedido.Id_Producto= "+id_producto+" and detalle_pedido.Id_Pedido= "+id_pedidp;
+			pstm=cn.prepareStatement(sql);
+			salida=pstm.executeUpdate();
+		 } catch (Exception e) {
+			System.out.println("Problema en deleteDetalle_pedido: "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		
 		return salida;
 	}
 

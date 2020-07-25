@@ -1,3 +1,7 @@
+<%@page import="entities.Compra"%>
+<%@page import="entities.Detalle_Compra"%>
+<%@page import="java.util.List"%>
+<%@page import="jdk.nashorn.internal.runtime.ListAdapter"%>
 <%@ include file="snippets/head.jsp" %>
 <title>Carrito de compras - Farmacia La Nobleza</title>
 
@@ -10,8 +14,9 @@
       <form id="form-carrito" action="" method="post" class="carrito-compras__container container">
         <div class="carrito-compras__1">
           <div class="carrito-compras__top">
+          	<%int totalpro=(int) request.getAttribute("nropro");  %>
             <p class="carrito-compras__title">TU PEDIDO</p>
-            <p class="carrito-compras__productos">1 Producto(s)</p>
+            <p class="carrito-compras__productos"><%=totalpro %> Producto(s)</p>
           </div>
           <table class="carrito-compras__table">
             <thead>
@@ -24,54 +29,57 @@
               </tr>
             </thead>
             <tbody>
+            	<% Compra p =(Compra) request.getAttribute("pedido");
+            		List<Detalle_Compra> listaCarrito = (List<Detalle_Compra>) request.getAttribute("productosXpedido");
+            		System.out.println(listaCarrito.get(0).getId_producto());
+            		if(listaCarrito!=null){
+            			for(Detalle_Compra detalle_Compra:listaCarrito){%>
               <tr class="carrito-compras__table__row">
                 <th class="carrito-compras__table__producto">
                   <figure class="carrito-compras__table__img">
                     <img src="assets/img/producto.jpg" alt="foto">
                   </figure>
                   <div class="carrito-compras__table__data">
-                    <p class="carrito-compras__table__data__title">ALCOHOL 96° X 1000 ML</p>
-                    <p>SKU: 08646</p>
-                    <p>Maximo de compra: 1 unidades.</p>
+                    <p class="carrito-compras__table__data__title"><%=detalle_Compra.getNombre_producto() %></p>
+                    <p>SKU: <%=detalle_Compra.getId_producto() %></p>
+                    <p>Maximo de compra: 10 unidades.</p>
                   </div>
                 </th>
                 <th class="carrito-compras__table__number">
                   <input type="number" name="" id="" value="1">
                 </th>
                 <th>
-                  S/<span>15.40</span>
+                  S/<span><%=detalle_Compra.getPrecio_uni() %></span>
                 </th>
                 <th>
-                  S/<span>15.40</span>
+                  S/<span><%=detalle_Compra.total_detalle_producto() %></span>
                 </th>
                 <th class="carrito-compras__table__delete">
-                  <i class="far fa-trash-alt"></i>
+                  <a href="CompraServlet?type=delete&idpro=<%=detalle_Compra.getId_producto() %>&idped=<%=detalle_Compra.getId_pedido()%>&dni=<%=p.getDni_Usuario()%>"><i class="far fa-trash-alt"></i></a>
                 </th>
               </tr>
+              <%}}else{ %>
               <tr class="carrito-compras__table__row">
                 <th class="carrito-compras__table__producto">
-                  <figure class="carrito-compras__table__img">
-                    <img src="assets/img/producto.jpg" alt="foto">
-                  </figure>
                   <div class="carrito-compras__table__data">
-                    <p class="carrito-compras__table__data__title">ALCOHOL 96° X 1000 ML</p>
-                    <p>SKU: 08646</p>
-                    <p>Maximo de compra: 1 unidades.</p>
-                  </div>
+                    <p class="carrito-compras__table__data__title">No existen productos agregados</p>
+                  	<p>Puedes encontrar nuestros productos  <a href="ProductoServlet?cat=0">AQUI!</a></p>
+                  	</div>
                 </th>
                 <th class="carrito-compras__table__number">
-                  <input type="number" name="" id="" value="1">
+                  <input type="number" name="" id="" value="0">
                 </th>
                 <th>
-                  S/<span>15.40</span>
+                  S/<span>0</span>
                 </th>
                 <th>
-                  S/<span>15.40</span>
+                  S/<span>0</span>
                 </th>
                 <th class="carrito-compras__table__delete">
                   <i class="far fa-trash-alt"></i>
                 </th>
               </tr>
+              <%} %>
             </tbody>
           </table>
           <div class="carrito-compras__inputs">
@@ -110,10 +118,11 @@
 	          </div>
           </div>
         </div>
+        <% Double total = (Double) request.getAttribute("total");%>
         <div class="carrito-compras__2">
           <div class="carrito-compras__pagar">
             <p class="carrito-compras__pagar__title">TOTAL A PAGAR</p>
-            <p class="carrito-compras__pagar__precio">S/ 27.00</p>
+            <p class="carrito-compras__pagar__precio"><%=total %></p>
             <p class="carrito-compras__pagar__text">Compra minima a partir de S/ 20.00</p>
             <div class="carrito-compras__pagar__delivery">
               <p class="carrito-compras__pagar__delivery__title">DELIVERY</p>

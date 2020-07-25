@@ -46,6 +46,7 @@
             </div>
             <div class="productos__grid">
             <% List<Producto> listaProductos = (List<Producto>) request.getAttribute("productos");
+            	String dni1=(String) session.getAttribute(Constantes.DNI_US); 
             	if(listaProductos!=null){
             		for(Producto productoItem:listaProductos){%>
               <article class="card">
@@ -56,7 +57,7 @@
                   <h3 class="card__title"><%=productoItem.getNom_producto() %></h3>
                   <p class="card__price"><%=productoItem.getPrecio_pro() %></p>
                   <a href="#" class="button card__button"><i class="fas fa-plus-circle"></i><span>Ver Detalles</span></a>
-                  <a href="<%=(activeSession!=null)? "carrito-compras.jsp":"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
+                  <a href="<%=(activeSession!=null)? "CompraServlet?dni="+dni1+"&id="+productoItem.getId_producto():"login.jsp" %>" class="button card__button"><i class="fas fa-cart-plus"></i><span>Agregar Al Carrito</span></a>
                 </div>
               </article>
               <%}}%>

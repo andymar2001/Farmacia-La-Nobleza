@@ -23,6 +23,7 @@
         </div>
         <div class="header__top__user">
         <%	Boolean activeSession=(Boolean) session.getAttribute(Constantes.LOGIN);
+        	String dni_nav =(String) session.getAttribute(Constantes.DNI_US);
      		if(activeSession==null || activeSession==false){%>
           <a href="registro-usuario.jsp">
             <p>Registrarme</p>
@@ -35,6 +36,10 @@
           <a href="registro-usuario.jsp">
             <i class="far fa-user-circle"></i>
             <p>Mi Perfil - <%=nombreUs.toUpperCase() %></p>
+          </a>
+          <a href="CompraServlet?dni=<%=dni_nav%>">
+          	<i class="fas fa-shopping-bag"></i>
+          	<p>Carrito</p>
           </a>
           <a href="LoginServlet?type=logout" onclick="return confirm('Está seguro que desea Salir??')">
             <i class="fas fa-power-off"></i>

@@ -18,4 +18,6 @@ public interface CarritoModelInterface {
 	public int addPedido(String dni);
 	
 	public int addDetalle_Pedido(int id_pedido,int id_producto);
+	
+	public int deleteDetalle(int id_pedidp,int id_producto);
 }

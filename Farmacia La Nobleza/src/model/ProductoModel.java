@@ -220,15 +220,13 @@ public class ProductoModel implements ProductoModelInterface {
 			pstm.setInt(1, id);
 			rs=pstm.executeQuery();
 			if(rs.next()) {
-				int colum=1;
 				producto=new Producto();
-				producto.setId_producto(rs.getInt(colum));
-				producto.setNom_producto(rs.getString(colum++));
-				producto.setId_proveedor(rs.getInt(colum++));
-				producto.setId_categoria(rs.getInt(colum++));
-				producto.setU_medida(rs.getString(colum++));
-				producto.setPrecio_pro(rs.getDouble(colum++));
-				producto.setStock(rs.getInt(colum++));
+				producto.setId_producto(rs.getInt("Id_Producto"));
+				producto.setNom_producto(rs.getString("Nom_producto"));
+				producto.setId_proveedor(rs.getInt("Id_Proveedor"));
+				producto.setId_categoria(rs.getInt("Id_Categoria"));
+				producto.setU_medida(rs.getString("U_Medida"));
+				producto.setPrecio_pro(rs.getDouble("Precio_Unidad"));
 			}
 			else {
 				producto=new Producto();producto.setNom_producto("NO EN EXISTENCIA");

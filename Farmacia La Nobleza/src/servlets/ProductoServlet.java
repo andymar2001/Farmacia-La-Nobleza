@@ -32,7 +32,7 @@ public class ProductoServlet extends HttpServlet {
     	
     String type=request.getParameter("type");
     	
-    	if(type.equals("list"))
+    	if(type!=null && type.equals("list"))
     	{
     		ListadoProductoMantenimiento(request,response);
     		

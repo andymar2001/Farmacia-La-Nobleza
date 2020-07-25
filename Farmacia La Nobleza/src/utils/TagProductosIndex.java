@@ -15,6 +15,7 @@ public class TagProductosIndex extends TagSupport {
 	private static final long serialVersionUID = 1L;
 	
 	public String top;
+	session session= new session();
 	String carrito="carrito-compras.jsp";
 	String login="login.jsp";
 	
@@ -40,7 +41,7 @@ public class TagProductosIndex extends TagSupport {
 			out.print("<h3 class='card__title'>"+producto.getNom_producto()+"</h3>");
 			out.print("<p class='card__price'>"+producto.getPrecio_pro()+"</p>");
 			out.print("<a href='#' class='button card__button'><i class='fas fa-plus-circle'></i><span>Ver Detalles</span></a>");
-			out.print("<a href='login.jsp' class='button card__button'><i class='fas fa-cart-plus'></i><span>Agregar Al Carrito</span></a>");
+			out.print("<a href='CompraServlet?id='"+producto.getId_producto()+" class='button card__button'><i class='fas fa-cart-plus'></i><span>Agregar Al Carrito</span></a>");
 			out.print("</div>");
 			out.print("</article>");
 			}
