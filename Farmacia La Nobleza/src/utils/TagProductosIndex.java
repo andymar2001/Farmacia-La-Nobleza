@@ -41,7 +41,7 @@ public class TagProductosIndex extends TagSupport {
 			out.print("<h3 class='card__title'>"+producto.getNom_producto()+"</h3>");
 			out.print("<p class='card__price'>"+producto.getPrecio_pro()+"</p>");
 			out.print("<a href='#' class='button card__button'><i class='fas fa-plus-circle'></i><span>Ver Detalles</span></a>");
-			out.print("<a href='CompraServlet?id='"+producto.getId_producto()+" class='button card__button'><i class='fas fa-cart-plus'></i><span>Agregar Al Carrito</span></a>");
+			out.print("<a href='CompraServlet?type=addtag&idtag="+producto.getId_producto()+"' class='button card__button'><i class='fas fa-cart-plus'></i><span>Agregar Al Carrito</span></a>");
 			out.print("</div>");
 			out.print("</article>");
 			}

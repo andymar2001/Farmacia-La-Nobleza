@@ -15,6 +15,9 @@ public class Constantes {
 		public static final String ESTADO_US="Estado";
 		public static final String ROL_US="id_tipo_usario";
 		
+		public static final int ROL_ADMI=1;
+		public static final int ROL_CLIENTE=2;
+		
 		
 		//Cookies
 		public static final String COOKIE_DNI = "DNI";

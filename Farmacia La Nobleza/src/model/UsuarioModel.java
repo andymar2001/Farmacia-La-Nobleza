@@ -145,10 +145,10 @@ public class UsuarioModel implements UsuarioModelInterface {
 		try {
 			
 			cn = MysqlDBConexion.getConexion();
-			String sql="select * from usuario where ni_Usuario=?";
+			String sql="select * from usuario where Dni_Usuario=?";
 			pstm=cn.prepareStatement(sql);
 			pstm.setString(1, dni);
-			if(pstm.executeUpdate()==1) {
+			if(pstm.executeQuery()!=null) {
 				salida=true;
 			}
 			

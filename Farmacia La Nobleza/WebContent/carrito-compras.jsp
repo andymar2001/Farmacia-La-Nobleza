@@ -9,6 +9,7 @@
 
 <body>
 <%@ include file="snippets/header.jsp" %>
+<%String idtag=(String) request.getAttribute("idtag"); String dni_tag=(String)session.getAttribute(Constantes.DNI_US);if(idtag!=null && dni_tag!=null){System.out.println("llego: "+idtag+" "+dni_tag); response.sendRedirect("CompraServlet?dni="+dni_tag+"&id="+idtag);System.out.println("pasó por acas");} %>
   <main class="main">
     <section class="carrito-compras section">
       <form id="form-carrito" action="" method="post" class="carrito-compras__container container">
@@ -31,8 +32,7 @@
             <tbody>
             	<% Compra p =(Compra) request.getAttribute("pedido");
             		List<Detalle_Compra> listaCarrito = (List<Detalle_Compra>) request.getAttribute("productosXpedido");
-            		System.out.println(listaCarrito.get(0).getId_producto());
-            		if(listaCarrito!=null){
+            		if(listaCarrito!=null && listaCarrito.size()!=0){
             			for(Detalle_Compra detalle_Compra:listaCarrito){%>
               <tr class="carrito-compras__table__row">
                 <th class="carrito-compras__table__producto">
@@ -58,7 +58,7 @@
                   <a href="CompraServlet?type=delete&idpro=<%=detalle_Compra.getId_producto() %>&idped=<%=detalle_Compra.getId_pedido()%>&dni=<%=p.getDni_Usuario()%>"><i class="far fa-trash-alt"></i></a>
                 </th>
               </tr>
-              <%}}else{ %>
+              <%}}else { %>
               <tr class="carrito-compras__table__row">
                 <th class="carrito-compras__table__producto">
                   <div class="carrito-compras__table__data">
@@ -75,13 +75,11 @@
                 <th>
                   S/<span>0</span>
                 </th>
-                <th class="carrito-compras__table__delete">
-                  <i class="far fa-trash-alt"></i>
-                </th>
               </tr>
               <%} %>
             </tbody>
           </table>
+          <%if(listaCarrito!=null && listaCarrito.size()!=0) {%>
           <div class="carrito-compras__inputs">
 	          <div class="carrito-compras__gridtwo">
 	          	<div>
@@ -117,6 +115,7 @@
 		          </div>
 	          </div>
           </div>
+          <%} %>
         </div>
         <% Double total = (Double) request.getAttribute("total");%>
         <div class="carrito-compras__2">

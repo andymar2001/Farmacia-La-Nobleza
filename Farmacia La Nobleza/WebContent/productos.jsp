@@ -15,20 +15,6 @@
             <div class="productos__top">
               <% String categoria=(String) request.getAttribute("categoria"); %><%=categoria %>
             </div>
-            <div class="productos__filtro">
-              <div class="productos__filtro__item">
-                <input type="checkbox" name="productos" id="aseo-limpieza">
-                <label for="aseo-limpieza">Aseo y limpieza</label>
-              </div>
-              <div class="productos__filtro__item">
-                <input type="checkbox" name="productos" id="botellas-tomatodos">
-                <label for="botellas-tomatodos">Botellas y tomatodos</label>
-              </div>
-              <div class="productos__filtro__item">
-                <input type="checkbox" name="productos" id="teletrabajo">
-                <label for="teletrabajo">Teletrabajo</label>
-              </div>
-            </div>
           </div>
           <div>
             <figure>

@@ -26,12 +26,66 @@ public class CompraServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	String dniString =(String) req.getParameter("dni");
-    	Compra pedido = modeloCarrito.compraxusuario(dniString);
     	String id = (String) req.getParameter("id");
-    	double totalCarritoDouble=(double) 0;
-    	int totalped=0;
     	String type= (String) req.getParameter("type");
     	List<Detalle_Compra> itemPedidoCompras=null;
+    	Compra pedido = modeloCarrito.compraxusuario(dniString);
+    	double totalCarritoDouble=(double) 0;
+		int totalped=0;
+    	if(type!=null &&type.equals("delete")) {
+    		String idproString=req.getParameter("idpro");
+    		String idpedString=req.getParameter("idped");
+    		String dni =req.getParameter("dni");
+			int flag =modeloCarrito.deleteDetalle(Integer.parseInt(idpedString),Integer.parseInt(idproString));
+				if(flag==1) {
+					resp.sendRedirect("CompraServlet?dni="+dni);
+				}
+    	}else if(dniString!=null) {
+    		if(id!=null) {
+    			if(pedido!=null) {
+        			
+        			modeloCarrito.addDetalle_Pedido(pedido.Id_Pedido,Integer.parseInt(id));
+        			itemPedidoCompras=modeloCarrito.productoxpedido(pedido.getId_Pedido());
+        			for(Detalle_Compra item:itemPedidoCompras) {
+        				totalCarritoDouble+=item.total_detalle_producto();
+        				totalped++;
+        			}
+            		req.setAttribute("nropro",totalped);
+            		req.setAttribute("total", totalCarritoDouble);
+            		req.setAttribute("productosXpedido", itemPedidoCompras);
+            		req.setAttribute("pedido", pedido);
+            		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
+        		}else {
+        			modeloCarrito.addPedido(dniString);
+        			pedido=modeloCarrito.compraxusuario(dniString);
+        			modeloCarrito.addDetalle_Pedido(pedido.getId_Pedido(), Integer.parseInt(id));
+        			itemPedidoCompras=modeloCarrito.productoxpedido(pedido.getId_Pedido());
+        			for(Detalle_Compra item:itemPedidoCompras) {
+        				totalCarritoDouble+=item.total_detalle_producto();
+        				totalped++;
+        			}
+        		}
+    		}else {
+    		pedido = modeloCarrito.compraxusuario(dniString);
+    		itemPedidoCompras=modeloCarrito.productoxpedido(pedido.getId_Pedido());
+    		for(Detalle_Compra item:itemPedidoCompras) {
+				totalCarritoDouble+=item.total_detalle_producto();
+				totalped++;
+			}
+    		req.setAttribute("nropro",totalped);
+    		req.setAttribute("total", totalCarritoDouble);
+    		req.setAttribute("productosXpedido", itemPedidoCompras);
+    		req.setAttribute("pedido", pedido);
+    		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
+    		}
+    	}else if(type!=null && type.equals("addtag")) {
+    		String idtagString=(String) req.getParameter("idtag");
+    		req.setAttribute("idtag",idtagString);
+    		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
+    		
+    	}
+    	/*    	
+    	
     	if(type==null) {
     	if(id!=null) {
     	if(pedido!=null) {
@@ -74,16 +128,7 @@ public class CompraServlet extends HttpServlet {
     		req.setAttribute("productosXpedido", itemPedidoCompras);
     		req.setAttribute("pedido", pedido);
     		req.getRequestDispatcher("carrito-compras.jsp").forward(req, resp);
-    	}}
-    	else if(type.equals("delete")) {
-    		String idproString=req.getParameter("idpro");
-    		String idpedString=req.getParameter("idped");
-    		String dni =req.getParameter("dni");
-			int flag =modeloCarrito.deleteDetalle(Integer.parseInt(idpedString),Integer.parseInt(idproString));
-				if(flag==1) {
-					resp.sendRedirect("CompraServlet?dni="+dni);
-				}
-		}
+    	}}*/
     	
     }
     

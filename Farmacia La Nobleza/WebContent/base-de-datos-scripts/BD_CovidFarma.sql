@@ -89,7 +89,7 @@ FechaPedido 		date NOT NULL,
 FechaEntrega 		date NULL,
 FechaEnvio 			date NULL,
 -- D= DELIVERY / T = EN TIENDA --
-Envio 				char(1) NOT NULL CHECK(Envio like 'D' or Envio like 'T'),
+Envio 				char(1) NULL CHECK(Envio like 'D' or Envio like 'T'),
 Cargo 				decimal(10, 0) NULL,
 DireccionDestinatario varchar(60) NULL,
 CiudadDestinatario 	varchar(15) NULL,

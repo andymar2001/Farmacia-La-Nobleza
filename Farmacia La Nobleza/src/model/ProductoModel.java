@@ -171,7 +171,6 @@ public class ProductoModel implements ProductoModelInterface {
 //				cantidadF=rs.getRow();
 //				rs.beforeFirst();
 //			}
-			System.out.println("Aqui esta el error 1 xd " +cantidadF);
 			if(cantidadF!=0) {
 				
 				while(rs.next()) {
@@ -187,7 +186,6 @@ public class ProductoModel implements ProductoModelInterface {
 				
 			Producto producto = new Producto();producto.setNom_producto("NO EXISTEN PRODUCTOS AUN");listaProductos.add(producto);
 			}
-			System.out.println("Aqui esta el error 2 xd ");
 		} 
 			catch (Exception e) {
 			System.out.println("error metodo listado de productos en general "+e.getMessage());

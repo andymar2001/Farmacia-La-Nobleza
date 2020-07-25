@@ -8,12 +8,9 @@
 <%@ include file="snippets/header.jsp" %>
   <main class="main">
     <section class="mantenimiento-productos section">
-      <div class="mantenimiento-productos__container container">
-        <h2 class="title">Mantenimiento Productos</h2>
-        
+      <div class="mantenimiento-productos__container container">       
         <form action="ProductoServlet" method="post" id="">
-        
-        
+         <h2 class="title">Mantenimiento Productos</h2>        
           <select class="mantenimiento-productos__combotop input" name="" id="">
             <option disabled selected>Escoger categoria</option>
             <option value="hogar">Hogar</option>
@@ -42,9 +39,6 @@
               </th>
               <th class="table__item">
                 Stock
-              </th>
-              <th class="table__item">
-                Acciones
               </th>
             </tr>
           </thead>
@@ -76,12 +70,8 @@
               <th class="table__item">
                 <%=listado.getStock() %>
               </th>
-              <th class="table__item">
-                <a href="#">Eliminar</a>
-                <a href="#">Modificar</a>
-              </th>
             </tr>
-           <%}} %>
+           <%}}%>
           </tbody>
         </table>
       </div>
