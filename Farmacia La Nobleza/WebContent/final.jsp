@@ -21,7 +21,7 @@
 			Compra compra=(Compra) request.getAttribute("pedido");%>
 			<h4>Boleta N°: <%=boleta.getIdboleta() %></h4>
 			<h4>Monto Total: <%=boleta.getMontototal() %></h4>
-			<h4>Fecha de Envio: <%=compra.getFechaEntrega() %></h4>
+			<h4>Fecha de Envio: <%=compra.getFechaEnvio() %></h4>
 			<h4>Diereccion: <%=(compra.getDireccionDestinatario()!=null)? compra.getDireccionDestinatario():"-"%></h4>
         <table class="mantenimiento-productos__table table">
           <thead class="table__thead">
