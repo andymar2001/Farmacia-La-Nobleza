@@ -68,6 +68,7 @@
         </table>
         <%} %>
       </div>
+      <h2>Regresar al <a href="index.jsp">INICIO</a></h2>
     </section>
   </main>
 <%@ include file="snippets/footer.jsp" %>
