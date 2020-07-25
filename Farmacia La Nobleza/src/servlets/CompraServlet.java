@@ -43,8 +43,17 @@ public class CompraServlet extends HttpServlet {
     	}else if(dniString!=null) {
     		if(id!=null) {
     			if(pedido!=null) {
-        			
-        			modeloCarrito.addDetalle_Pedido(pedido.Id_Pedido,Integer.parseInt(id));
+        			itemPedidoCompras=modeloCarrito.productoxpedido(pedido.getId_Pedido());
+        			for(Detalle_Compra items:itemPedidoCompras) {
+        				if(items.getId_producto()==Integer.parseInt(id)) {
+        					modeloCarrito.updateCantidadDetalle(pedido.getId_Pedido(), Integer.parseInt(id), items.getCantidad()+1);
+        					System.out.println("llego para upadatear");
+        					break;
+        				}else {
+        					modeloCarrito.addDetalle_Pedido(pedido.Id_Pedido,Integer.parseInt(id));
+        					break;
+        				}
+        			}        			
         			itemPedidoCompras=modeloCarrito.productoxpedido(pedido.getId_Pedido());
         			for(Detalle_Compra item:itemPedidoCompras) {
         				totalCarritoDouble+=item.total_detalle_producto();

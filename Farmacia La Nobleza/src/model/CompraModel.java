@@ -4,6 +4,7 @@ import interfaces.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,6 +20,7 @@ public class CompraModel implements CarritoModelInterface{
 	public String fechactualString=formato_AMD.format(fechaActual);
 	Connection cn = null;
 	PreparedStatement pstm = null;
+	PreparedStatement pstm2=null;
 	ResultSet rs = null;
 
 	@Override
@@ -162,11 +164,6 @@ public class CompraModel implements CarritoModelInterface{
 		return salida;
 	}
 
-	@Override
-	public int GuardaBoleta(String dni, int id_pedido) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	
 	
@@ -267,6 +264,186 @@ public class CompraModel implements CarritoModelInterface{
 		return salida;
 	}
 
+	@Override
+	public int updateCantidadDetalle(int id_pedido, int id_producto,int cantidad) {
+		int salida =-1;
+		
+		try {
+			
+			cn=MysqlDBConexion.getConexion();
+			String sql="UPDATE Detalle_pedido SET Cantidad = ? WHERE Id_Pedido = ? and Id_Producto=?";
+			pstm=cn.prepareStatement(sql);
+			pstm.setInt(1, cantidad);
+			pstm.setInt(2, id_pedido);
+			pstm.setInt(3, id_producto);
+			salida=pstm.executeUpdate();
+			System.out.println("updateo");
+			
+		} catch (Exception e) {
+			System.out.println("Problema en deleteDetalle_pedido: "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		return salida;
+	}
+
+	@Override
+	public int RCompra(String dni,Compra pedido) {
+		int salida=-1;
+		double monto=0;
+		
+		try {
+			
+			List<Detalle_Compra> listaCompras=productoxpedido(pedido.getId_Pedido());
+			for(Detalle_Compra compra:listaCompras) {
+				monto+=compra.total_detalle_producto();
+			}
+			cn=MysqlDBConexion.getConexion();
+			cn.setAutoCommit(false);
+			String sqlpedidoString="UPDATE pedido SET FechaEnvio = ?, Envio = ?, Cargo = ?, DireccionDestinatario =?, CiudadDestinatario =?, RegionDestinatario=?, Estado = 'P' WHERE Id_Pedido = ?";
+			String sqlAddBoleta="insert into Boleta values(null,?,?,?,'V')";
+			pstm=cn.prepareStatement(sqlpedidoString);
+			pstm.setString(1, pedido.getFechaEnvio());
+			pstm.setString(2, pedido.getEnvio());
+			pstm.setDouble(3, pedido.getCargo());
+			pstm.setString(4, pedido.getDireccionDestinatario());
+			pstm.setString(5, pedido.getCiudadDestinatario());
+			pstm.setString(6, pedido.getRegionDestinatario());
+			pstm.setInt(7, pedido.getId_Pedido());
+			pstm.executeUpdate();
+			pstm2=cn.prepareStatement(sqlAddBoleta);
+			pstm2.setString(1, dni);
+			pstm2.setInt(2, pedido.getId_Pedido());
+			pstm2.setDouble(3, monto);
+			pstm2.executeUpdate();
+			cn.commit();
+			salida=1;
+		} catch(SQLException e) {
+	        if(cn!=null){
+	            try {
+	                cn.rollback();
+	            }catch (SQLException ex) {
+	                System.out.println("problema en transaccion"+ex.toString());
+	            }
+	         }
+	 }catch (Exception e) {
+			System.out.println("Problema desconocido:  "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		return salida;
+	}
+
+	@Override
+	public Compra compraXID(int id) {
+		Compra compra=null;
+		
+		try {
+			
+			cn=MysqlDBConexion.getConexion();
+			String sqloString="select * from pedido where Id_Pedido=?";
+			pstm=cn.prepareStatement(sqloString);
+			pstm.setInt(1, id);
+			rs=pstm.executeQuery();
+			if(rs.next()) {
+				compra=new Compra();
+				compra.setId_Pedido(rs.getInt("Id_Pedido"));
+				compra.setDni_Usuario(rs.getString("Dni_Usuario"));
+				compra.setFechaPedido(rs.getString("FechaPedido"));
+				compra.setFechaEntrega(rs.getString("FechaEntrega"));
+				compra.setFechaEnvio(rs.getString("FechaEnvio"));
+				compra.setEnvio(rs.getString("Envio"));
+				compra.setCargo(rs.getDouble("Cargo"));
+				compra.setDireccionDestinatario(rs.getString("DireccionDestinatario"));
+				compra.setCiudadDestinatario(rs.getString("CiudadDestinatario"));
+				compra.setRegionDestinatario(rs.getString("RegionDestinatario"));
+				compra.setEstado(rs.getString("Estado"));
+				System.out.println("Trajo el pedido: "+compra.getId_Pedido()+" suuuuuuuper bien NANI");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Problema en compraxID: "+e.getMessage());
+		}
+		finally {
+			try {
+				
+				if(rs!=null) rs.close();
+				if(pstm!=null) pstm.close();
+				if(cn!=null) cn.close();
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		return compra;
+	}
+
+	@Override
+	public Boleta buscaxdni(String dni) {
+		
+		Boleta boleta=null;
+		
+			try {
+				
+				cn=MysqlDBConexion.getConexion();
+				String sqlString="select * from Boleta where Dni_Usuario=? and Estado='V' order by id_boleta desc";
+				pstm=cn.prepareStatement(sqlString);
+				pstm.setString(1, dni);
+				rs=pstm.executeQuery();
+				
+				if(rs.next()) {
+					boleta=new Boleta();
+					boleta.setIdboleta(rs.getInt("id_boleta"));
+					boleta.setDni_usuario(rs.getString("Dni_Usuario"));
+					boleta.setId_pedido(rs.getInt("Id_Pedido"));
+					boleta.setMontototal(rs.getDouble("Monto_total"));
+					boleta.setEstado(rs.getString("Estado"));
+					
+				}
+				
+			} catch (Exception e) {
+				System.out.println("Problema en deleteDetalle_pedido: "+e.getMessage());
+			}
+			finally {
+				try {
+					
+					if(rs!=null) rs.close();
+					if(pstm!=null) pstm.close();
+					if(cn!=null) cn.close();
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+					System.out.println(e.getMessage());
+				}
+			}
+		return boleta;
+		
+	}
+	
 	
 	
 

@@ -12,7 +12,7 @@
 <%String idtag=(String) request.getAttribute("idtag"); String dni_tag=(String)session.getAttribute(Constantes.DNI_US);if(idtag!=null && dni_tag!=null){System.out.println("llego: "+idtag+" "+dni_tag); response.sendRedirect("CompraServlet?dni="+dni_tag+"&id="+idtag);System.out.println("pasó por acas");} %>
   <main class="main">
     <section class="carrito-compras section">
-      <form id="form-carrito" action="" method="post" class="carrito-compras__container container">
+      <form id="form-carrito" action="RCompraServlet" method="post" class="carrito-compras__container container">
         <div class="carrito-compras__1">
           <div class="carrito-compras__top">
           	<%int totalpro=(int) request.getAttribute("nropro");  %>
@@ -46,7 +46,7 @@
                   </div>
                 </th>
                 <th class="carrito-compras__table__number">
-                  <input type="number" name="" id="" value="1">
+                  <input type="number" name="" id="" value="<%=(detalle_Compra.getCantidad()!=1)? detalle_Compra.getCantidad():1%>">
                 </th>
                 <th>
                   S/<span><%=detalle_Compra.getPrecio_uni() %></span>
@@ -132,6 +132,7 @@
               <p class="carrito-compras__pagar__delivery__fecha">martes 14 de julio de 2020</p>
             </div>
             <p class="carrito-compras__frase">#AUnClicDeTuSalud</p>
+            <input type="hidden" name="idpedido" value="<%=p.getId_Pedido()%>">
             <input class="button-submit carrito-compras__submit" type="submit" value="PAGAR">
           </div>
         </div>
