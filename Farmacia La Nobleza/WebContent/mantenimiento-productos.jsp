@@ -1,6 +1,7 @@
 <%@ include file="snippets/head.jsp" %>
 <%@page import="entities.Producto" %>
 <%@page import="java.util.List"%>
+<%@ taglib uri="etiquetaSlider" prefix="ts" %>
 <title>Mantenimiento Productos - Farmacia La Nobleza</title>
 </head>
 
@@ -13,8 +14,7 @@
          <h2 class="title">Mantenimiento Productos</h2>        
           <select class="mantenimiento-productos__combotop input" name="" id="">
             <option disabled selected>Escoger categoria</option>
-            <option value="hogar">Hogar</option>
-            <option value="medicina">Medicina</option>
+            <ts:tagOptionsCombobox />    
           </select>
           <input class="mantenimiento-productos__submit button-submit" type="submit" value="CONSULTAR">
           <input type="hidden" name="type" value="list">

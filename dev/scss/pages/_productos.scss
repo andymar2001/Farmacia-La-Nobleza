@@ -13,6 +13,7 @@
   }
   &__icon{
     display: flex;
+    flex: none;
     justify-content: center;
     align-items: center;
     width: 7rem;
@@ -23,7 +24,7 @@
     color: $secondary-color;
   }
   &__title{
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-left: 1rem;
   }
   &__filtro{

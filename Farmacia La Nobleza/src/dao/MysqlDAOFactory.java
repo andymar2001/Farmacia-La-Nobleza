@@ -1,10 +1,12 @@
 package dao;
 
 import interfaces.CarritoModelInterface;
+import interfaces.CategoriaModelInterface;
 import interfaces.LoginModelInterface;
 import interfaces.ProductoModelInterface;
 import interfaces.UsuarioModelInterface;
 import interfaces.VentaModelInterface;
+import model.CategoriaModel;
 import model.CompraModel;
 import model.LoginModel;
 import model.ProductoModel;
@@ -36,6 +38,11 @@ public class MysqlDAOFactory extends DAOFactory {
 	@Override
 	public ProductoModelInterface getProducto() {
 		return new ProductoModel();
+	}
+
+	@Override
+	public CategoriaModelInterface getListOptions() {
+		return new CategoriaModel();
 	}
 
 }

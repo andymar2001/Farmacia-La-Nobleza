@@ -10,7 +10,7 @@ public class MysqlDBConexion {
 		/* String nombreBD="farmanobleza";
 		  String usuario="root";
 		 String contraseña="mysql";
-		  String url="jdbc:mysql://localhost:3306/"+nombreBD+"?useUnicode=true&use"
+		  String url="jdbc:mysql://localhost:3307/"+nombreBD+"?useUnicode=true&use"
 				 +"JDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&"
 				 +"serverTimezone=UTC";
 		 
@@ -46,8 +46,8 @@ public class MysqlDBConexion {
 		try {
 			//obtener el drivers
 			Class.forName("com.mysql.jdbc.Driver");
-			String connectionURL="jdbc:mysql://localhost:3306/farmanobleza?user=root&password=&useUnicode=true&characterEncoding=UTF-8";
-			//String connectionURL="jdbc:mysql://localhost:3307/farmanobleza?user=root&password=mysql&useUnicode=true&characterEncoding=UTF-8";
+			//String connectionURL="jdbc:mysql://localhost:3306/farmanobleza?user=root&password=&useUnicode=true&characterEncoding=UTF-8";
+			String connectionURL="jdbc:mysql://localhost:3307/farmanobleza?user=root&password=mysql&useUnicode=true&characterEncoding=UTF-8";
 			cn=DriverManager.getConnection(connectionURL);
 			
 			if(cn!=null) {

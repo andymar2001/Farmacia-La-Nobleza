@@ -78,7 +78,7 @@ public class ProductoServlet extends HttpServlet {
 		case 4:
 			categoriaString="<div class='productos__top'>" + 
 					"              <div class='productos__icon'>" + 
-					"                <i class='ffas fa-briefcase-medical'></i>" + 
+					"                <i class=\"fas fa-briefcase-medical\"></i>" + 
 					"              </div>" + 
 					"              <h2 class='productos__title title'>"+"MEDICINA Y ORTOPEDIA"+"</h2>" + 
 					"            </div>";

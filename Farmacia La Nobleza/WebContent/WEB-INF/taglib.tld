@@ -17,5 +17,10 @@
 				<required>true</required>
 			</attribute>
 		</tag>
+		<tag>
+			<name>tagOptionsCombobox</name>
+			<tagclass>utils.TagOptionsCombobox</tagclass>
+			<bodycontent>false</bodycontent>
+		</tag>
 		
 	</taglib>

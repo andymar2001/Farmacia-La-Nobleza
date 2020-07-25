@@ -810,23 +810,16 @@ a {
   width: 100%;
   border-spacing: 0;
   box-shadow: 0px 0px 15px 0px #ccc;
-  display: grid;
   font-size: 1.5rem;
 }
 
 .table__thead {
   background-color: var(--primary-color);
   color: #fff;
-  display: grid;
 }
 
 .table__thead th {
   font-weight: 700;
-}
-
-.table__row {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
 }
 
 .table__row:nth-child(even) {
@@ -944,6 +937,7 @@ a {
 
 .productos__icon {
   display: flex;
+  flex: none;
   justify-content: center;
   align-items: center;
   width: 7rem;
@@ -955,7 +949,7 @@ a {
 }
 
 .productos__title {
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-left: 1rem;
 }
 
